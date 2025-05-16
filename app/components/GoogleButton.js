@@ -4,6 +4,7 @@ import Script from "next/script";
 import { signIn } from "next-auth/react";
 import { jwtDecode } from "jwt-decode"; 
 import { useRouter, } from "next/navigation";
+import Image from "next/image";
 export default function GoogleLoginButton({ width = 300 }) {
 
   
@@ -29,7 +30,7 @@ export default function GoogleLoginButton({ width = 300 }) {
         marginRight: "auto",
       }}
     >
-      <img src="/google.svg" alt="Google" style={{ width: "20px" }} />
+      <Image src="/google.svg" alt="Google" width={20} height={20} />
       Continue with Google
     </button></>
   );

@@ -1,21 +1,21 @@
+// app/[shortUrl]/page.js
+"use client";
 import { redirect } from "next/navigation";
-import clientPromise from "../lib/db";
+import connectDB from "@/app/lib/mongoose";
+import { Url } from "@/app/models/Url";
+import { useEffect } from "react";
 
-export default async function Page({ params }) {
-  const { shortUrl } = await params;
+export default async function ShortUrlPage({ params }) {
+  const { shortUrl } = params;
+ 
 
-  const client = await clientPromise;
-  const db = client.db("Trimify");
-  const collection = db.collection("URLS");
+  await connectDB();
 
-  const existing = await collection.findOne({ ShortUrl: shortUrl });
+  const existing = await Url.findOne({ shortUrl });
 
   if (!existing) {
-    return (
-      redirect('/not-found')
-    );
+    redirect("/not-found");
   }
 
-  // Redirect to the original long URL
-  redirect(existing.LongUrl);
+  redirect(existing.longUrl);
 }

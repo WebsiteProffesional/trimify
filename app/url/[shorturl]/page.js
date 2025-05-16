@@ -4,7 +4,7 @@ import { Url } from "@/app/models/Url";
 
 export default async function ShortUrlPage({ params }) {
   const { shorturl } = params;
-  console.log(shorturl)
+  
   await connectDB();
 
   const existing = await Url.findOne({ shortUrl });

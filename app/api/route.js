@@ -1,35 +1,40 @@
 import { NextResponse } from "next/server";
-import clientPromise from "../lib/db";
+import connectDB from "@/app/lib/mongoose";
+import { Url } from "@/app/models/Url";
 
-export const dynamic = "auto";
+export async function POST(req) {
+  try {
+    await connectDB();
+    const data = await req.json();
+    const fullShortUrl = `${process.env.NEXT_PUBLIC_HOST_URL}/${data.shortUrl}`;
+    const { username, longUrl, shortUrl, time, date, analytics } = data;
+    // const ShortUrl= `${process.env.NEXT_PUBLIC_HOST_URL}/${shortUrl}`
+    // Check if shortUrl already exists (for everyone)
+    const existing = await Url.findOne({ shortUrl });
+    if (existing) {
+      return NextResponse.json(
+        { error: "Short URL already taken!" },
+        { status: 409 }
+      );
+    }
 
-export async function POST(request) {
-  // Handle CORS preflight manually
-  const origin = request.headers.get("origin") || "*";
+    const newUrl = new Url({
+      username: username || "guest", // null = public user
+      longUrl: longUrl,
+      shortUrl: shortUrl,
+      fullShortUrl: fullShortUrl,
+      time: time,
+      date: date,
+      analytics: analytics,
+    });
 
-  const data = await request.json();
-  const client = await clientPromise;
-  const db = client.db("Trimify");
-  const collection = db.collection("URLS");
+    await newUrl.save();
 
-  const existing = await collection.findOne({ ShortUrl: data.ShortUrl });
-  const shortUrl = process.env.NEXT_PUBLIC_HOST_URL + "/" + data.ShortUrl;
-
-  if (existing) {
-    const response = NextResponse.json(
-      { error: "The URL with this short name already exists" },
-      { status: 409 }
-    );
-    response.headers.set("Access-Control-Allow-Origin", origin);
-    response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
-    return response;
+    return NextResponse.json({
+      message: "Short URL created successfully",
+      shortUrl: `${process.env.NEXT_PUBLIC_HOST_URL}/${shortUrl}`,
+    });
+  } catch (error) {
+    return NextResponse.json({ error: "Server Error try again later" }, { status: 500 });
   }
-
-  await collection.insertOne(data);
-  const response = NextResponse.json(shortUrl);
-  response.headers.set("Access-Control-Allow-Origin", origin);
-  response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
-  return response;
 }

@@ -13,7 +13,21 @@ const Logout = () => {
     if(session.provider==="google"){
       setbutton(true)
    }
+ 
+   
   }
+  const handleLogout = () => {
+    signOut({
+      redirect: true,
+      callbackUrl: "/login", // ya jahan tum redirect karna chaho
+    });
+  
+    toast.success("Successfully Logged Out", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+  };
+  
  
   return (
     <>
@@ -40,12 +54,8 @@ const Logout = () => {
 
          {button? <li title='Click to get logged out' className='bg-slate-600 font-bold text-black rounded-[12px] transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-white hover:text-black px-2 pb-1'>
             <Link href="/login">Log out</Link>
-          </li>:<li title='Click to get logged out' onClick={() =>{ signOut({ callbackUrl: "/login" })
-         toast.success("Successfully Logged Out",{
-          position:"top-right",
-          autoClose:3000
-         })
-        }} className='bg-slate-600 font-bold text-black rounded-[12px] transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-white hover:text-black px-2 pb-1'>
+          </li>:<li title='Click to get logged out' onClick={handleLogout}
+         className='bg-slate-600 font-bold text-black rounded-[12px] transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-white hover:text-black px-2 pb-1'>
           Log out
           </li>}
         </ul>

@@ -1,29 +1,40 @@
 import mongoose from "mongoose";
 
-const ItemSchema = new mongoose.Schema({
-  FirstName: {
-    type: String,
-    required: true,
+const UserSchema = new mongoose.Schema(
+  {
+    FirstName: {
+      type: String,
+    },
+    LastName: {
+      type: String,
+    },
+    FullName:{
+      type:String,
+    },
+    Username: {
+      type: String,
+    },
+    Gmail: {
+      type: String,
+      // sparse: true,
+    },
+    Password: {
+      type: String,
+    },
+  
+    Name: {
+      type: String,
+    },
+    Image: {
+      type: String,
+    },
+    Provider: {
+      type: String, // 'credentials' or 'google'
+    },
   },
-  LastName: {
-    type: String,
-    required: true,
-  },
-  Gmail: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  Username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  Password: {
-    type: String,
-    required: true,
-  },
-});
+  { timestamps: true }
+);
 
-const Data = mongoose.models.Data || mongoose.model("Data", ItemSchema);
+const Data = mongoose.models.loggedUsers || mongoose.model("loggedUsers", UserSchema);
+
 export default Data;

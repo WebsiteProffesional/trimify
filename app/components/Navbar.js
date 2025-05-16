@@ -17,16 +17,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className='hidden md:flex justify-center items-center gap-3 text-xl'>
-          <li className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
+          <li title='Click to redirect to homepage' className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
             <Link href="/">Home</Link>
           </li>
-          <li className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
-            <Link href="/about">About us</Link>
+          <li title='Click to redirect to about page' className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
+            <Link href="/about">About</Link>
           </li>
-          <li className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
+          <li title='Click to redirect to contact page' className='transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]'>
             <Link href="/contact">Contact</Link>
           </li>
-          <li className='bg-slate-600 font-bold text-black rounded-[12px] transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-white hover:text-black px-2 pb-1'>
+          <li title='Click to create new account' className='bg-slate-600 font-bold text-black rounded-[12px] transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-white hover:text-black px-2 pb-1'>
             <Link href="/sign-up-to-trimify">Sign up</Link>
           </li>
         </ul>

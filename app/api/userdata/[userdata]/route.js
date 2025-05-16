@@ -28,7 +28,7 @@ export async function GET(request, ) {
 }
 export async function PUT(request){
   let identifier= await request.json()
-  console.log(identifier);
+ 
   return NextResponse.json(identifier)
 }
 export async function DELETE(request) {

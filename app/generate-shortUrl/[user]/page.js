@@ -94,11 +94,11 @@ export default  function UserUrl({ params }) {
       <div className="relative h-[78vh] w-full bg-slate-900 flex justify-center items-center">
         {/* Main container for the form */}
         <div
-          className="flex flex-col z-10 bg-slate-700 p-4 sm:max-w-[50vh] md:max-w-[90vh] justify-center items-center min-h-[60vh] w-full text-white
-                  gap-6 rounded-2xl shadow-lg shadow-gray-600"
+          className="flex flex-col z-10 bg-slate-700  sm:max-w-[50vh] md:max-w-[90vh] justify-center items-center h-[60vh]  w-full text-white
+          gap-6 rounded-2xl shadow-lg shadow-gray-600 p-3"
         >
           {/* Title */}
-          <h1 className="text-4xl font-bold mb-4 mt-[-40px]">
+          <h1 className="text-2xl font-bold md:mb-1 md:mt-[-40px] md:text-4xl">
             Generate Shorturl From Here
           </h1>
           {/* Input for the long URL */}
@@ -134,6 +134,7 @@ export default  function UserUrl({ params }) {
           {loading && <Loader />}
           {/* Show the generated short URL if available */}
           {On && (
+           
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }} // Initial animation state
               animate={{ opacity: 1, scale: 1 }} // Final animation state

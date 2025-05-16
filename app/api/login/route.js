@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import connectDB from "@/app/lib/moongose";
+import connectDB from "@/app/lib/mongoose";
 import Data from "@/app/models/Sign-up";
 import bcrypt from "bcrypt";
-
+import jwt, { sign } from "jsonwebtoken";
+const JWT_SECRET = process.env.JWT_SECRET;
 export async function POST(request) {
   await connectDB();
   let data = await request.json();
@@ -26,8 +27,16 @@ export async function POST(request) {
         error: "Invalid username or password",
       });
     }
+    const token = jwt.sign(
+      {
+        user: user._id,
+        Username: Username,
+      },
+      JWT_SECRET,
+      { expiresIn: "2h" }
+    );
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, token: token });
   } catch (error) {
     return NextResponse.json({
       success: false,
