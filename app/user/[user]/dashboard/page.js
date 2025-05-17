@@ -39,7 +39,7 @@ export default function Page({ params }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/userdata/${username}`
+          `/api/userdata/${username}`
         );
 
         if (!response.ok) {
