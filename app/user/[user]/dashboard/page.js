@@ -163,7 +163,7 @@ export default function Page({ params }) {
                   {data?.urls?.map((item, index) => (
                     <tbody className="w-full" key={index}>
                       <tr className="text-center text-white text-[15px] font-bold bg-gray-900 h-[50px] rounded-2xl border-b-2 border-gray-950">
-                        <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[400px]">
+                        <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
                           {item.longUrl}
                         </td>
                         <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full flex justify-center items-center">
