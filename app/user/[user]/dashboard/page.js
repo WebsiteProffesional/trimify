@@ -34,7 +34,8 @@ export default function Page({ params }) {
     }
     tokenfetch();
   }, [username,router, status]);
- const handleVisibilityChange = () => {
+  useEffect(() => {
+  const handleVisibilityChange = () => {
     if (document.visibilityState === "visible") {
       // Refetch data when the tab becomes active again
       setLoading(true);
@@ -47,6 +48,7 @@ export default function Page({ params }) {
     document.removeEventListener("visibilitychange", handleVisibilityChange);
   };
 }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,7 +74,7 @@ export default function Page({ params }) {
       }
     };
 
-   if(loading) fetchData();
+      if (loading) fetchData();
   }, [username, loading]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
@@ -166,19 +168,19 @@ export default function Page({ params }) {
                         <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
                           {item.longUrl}
                         </td>
-                        <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full flex justify-center items-center">
-                          <div className="flex items-center gap-2">
+                        <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
+                          <div className="inline-flex gap-2">
                             <Link
                               onClick={handleCount}
                               title="Click to redirect"
                               target="_blank"
-                              className="underline transition-all ease-in-out duration-600 hover:text-black"
+                              className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
                               href={item.fullShortUrl}
                             >
                               {item.fullShortUrl}
                             </Link>
 
-                            <span className=" flex items-center gap-2">
+                            <span className="  gap-2 mt-2">
                               <lord-icon
                                 aria-label="Copy to Clipboard"
                                 onClick={() => {
