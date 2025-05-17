@@ -34,7 +34,19 @@ export default function Page({ params }) {
     }
     tokenfetch();
   }, [username,router, status]);
+ const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      // Refetch data when the tab becomes active again
+      setLoading(true);
+    }
+  };
 
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  return () => {
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+  };
+}, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,7 +72,7 @@ export default function Page({ params }) {
       }
     };
 
-    fetchData();
+   if(loading) fetchData();
   }, [username, loading]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
