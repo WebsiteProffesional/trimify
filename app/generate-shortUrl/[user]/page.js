@@ -67,13 +67,24 @@ export default  function UserUrl({ params }) {
         return; // Exit the function
       } else {
         // Show a success toast if the URL is generated successfully
-        toast.success("The url is generated successfully", {
+         toast.success("The shorturl has been generated successfully", {
           position: "top-right",
           autoClose: 3000,
         });
-        setlongUrl(""); // Clear the long URL input
-        setshortUrl(""); // Clear the short URL input
-        setOn(!On); // Toggle the display of the short URL
+
+        // 💡 Reset the previous state to trigger re-render
+        setOn(false);
+        setMsg("");
+
+        // Wait for next render tick to set new values (ensures re-animation)
+        setTimeout(() => {
+          setMsg(result.shortUrl);
+          setOn(true); // Show the updated short URL
+        }, 0);
+
+        // Clear the input fields
+        setlongUrl("");
+        setshortUrl(""); //he display of the short URL
       }
     } catch (err) {
       toast,warn("Server error Try again later", {
