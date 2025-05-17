@@ -70,18 +70,24 @@ const Generate = () => {
       }
 
       // Show a success toast if the URL is generated successfully
-      toast.success("The shorturl has been generated successfully", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+       toast.success("The shorturl has been generated successfully", {
+          position: "top-right",
+          autoClose: 3000,
+        });
 
-      // Set the generated short URL message
-      setMsg(result.shortUrl);
-      setOn(true); // Toggle the display of the short URL
+        // 💡 Reset the previous state to trigger re-render
+        setOn(false);
+        setMsg("");
 
-      // Clear the input fields
-      setlongUrl("");
-      setshortUrl("");
+        // Wait for next render tick to set new values (ensures re-animation)
+        setTimeout(() => {
+          setMsg(result.shortUrl);
+          setOn(true); // Show the updated short URL
+        }, 0);
+
+        // Clear the input fields
+        setlongUrl("");
+        setshortUrl(""); //he display of the short URL
     } catch (err) {
       // Show an error toast if an exception occurs
       toast.error("Server error Try again later", {
