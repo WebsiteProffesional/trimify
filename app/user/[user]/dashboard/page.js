@@ -59,7 +59,7 @@ export default function Page({ params }) {
       }
     };
 
-    fetchData();
+      if (loading) fetchData();
   }, [username, loading]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
@@ -152,16 +152,20 @@ export default function Page({ params }) {
                         </td>
                         <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
                           <div className="inline-flex gap-2">
+                        <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
+                          <div className="inline-flex gap-2">
                             <Link
                              
                               title="Click to redirect"
                               target="_blank"
+                              className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
                               className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
                               href={item.fullShortUrl}
                             >
                               {item.fullShortUrl}
                             </Link>
 
+                            <span className="  gap-2 mt-2">
                             <span className="  gap-2 mt-2">
                               <lord-icon
                                 aria-label="Copy to Clipboard"

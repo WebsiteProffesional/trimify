@@ -67,6 +67,8 @@ const Generate = () => {
       }
 
       // Show a success toast if the URL is generated successfully
+
+      // Show a success toast if the URL is generated successfully
       // Show a success toast if the URL is generated successfully
       toast.success("The shorturl has been generated successfully", {
         position: "top-right",
