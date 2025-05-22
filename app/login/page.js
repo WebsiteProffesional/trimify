@@ -44,11 +44,14 @@ const Login = () => {
 
     // Validate username input
     if (username.length === 0) {
+      setLoading(false)
       toast.error("Please enter your username", {
         position: "top-right", // Position of the toast
         autoClose: 5000, // Auto close after 5 seconds
       });
+      
       return; // Exit the function
+      
     }
 
     // Validate password input
@@ -57,6 +60,7 @@ const Login = () => {
         position: "top-right",
         autoClose: 5000,
       });
+      setLoading(false)
       return; // Exit the function
     }
 
@@ -65,7 +69,7 @@ const Login = () => {
       const response = await fetch("/api/login", {
         method: "POST", // HTTP method
         body: JSON.stringify({
-          Username: username.toLowerCase(), // Send username
+          Username: username, // Send username
           Password: password, // Send password
         }),
         headers: {
@@ -83,7 +87,7 @@ const Login = () => {
           autoClose: 5000,
         });
         // Redirect to the user dashboard
-        router.push(`/user/${username.toLowerCase()}/dashboard`);
+        router.push(`/user/${username}/dashboard`);
       } else {
         // Handle login error
         toast.error(result.error, {
@@ -98,7 +102,7 @@ const Login = () => {
         position: "top-right",
         autoClose: 5000,
       });
-      setloading(false);
+      setLoading(false);
     } finally {
       // Once the process is complete, set loading to false
       setLoading(false);
@@ -114,8 +118,8 @@ const Login = () => {
         {/* Main container for the login form */}
         <div className="bg-gray-900 rounded-2xl p-4 max-w-[80vh] w-full h-auto flex flex-col gap-3 items-center justify-center z-2">
           {/* Title of the login page */}
-          <h1 className="text-3xl text-white font-bold mb-12">
-            Login to Trimify
+          <h1 className="text-3xl bree-bold text-white font-bold mb-3 mt-3">
+            Login to TRIMIFY now
           </h1>
           {/* Login form */}
           <form
@@ -135,7 +139,7 @@ const Login = () => {
               id="username"
               type="text"
               placeholder="Enter your username"
-              className="bg-gray-800 text-white max-w-[75vh] w-full px-2 py-2 outline-green-200 font-bold"
+              className="bg-gray-800 text-white max-w-[75vh] transition-all duration-300 ease-in-out w-full px-2 py-4 focus:scale-102 focus:outline-green-400 outline-green-200 font-bold"
             />
 
             {/* Password input field */}
@@ -149,7 +153,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"} // Toggle password visibility
                 autoComplete="current-password" // Enable autocomplete for password
                 placeholder="Enter your password"
-                className="bg-gray-800 text-white max-w-[75vh] w-full px-2 py-2 outline-green-200 font-bold"
+                className="bg-gray-800 text-white transition-all duration-300 ease-in-out focus:scale-102 focus:outline-green-400 max-w-[75vh] w-full px-2 py-4 outline-green-200 font-bold"
               />
               {/* Toggle password visibility */}
               <Image
@@ -179,8 +183,8 @@ const Login = () => {
               type="submit"
               className={
                 loading
-                  ? "bg-white text-black max-w-[75vh] w-full cursor-pointer transition-all ease-in-out duration-300 font-bold rounded-[3px] p-2"
-                  : "max-w-[75vh] w-full cursor-pointer transition-all ease-in-out duration-300 font-bold hover:bg-white hover:text-black p-2 bg-green-600 text-white rounded-[3px]"
+                  ? "bg-white text-black max-w-[75vh] roboto-bold w-full cursor-not-allowed transition-all ease-in-out duration-300 hover:scale-102 rounded-[3px] p-3 text-xl"
+                  : "max-w-[75vh] w-full cursor-pointer transition-all ease-in-out duration-300 text-xl roboto-bold hover:bg-white hover:text-black p-3 hover:scale-102 bg-green-600 text-white rounded-[3px]"
               }
               disabled={loading} // Disable button when loading
             >

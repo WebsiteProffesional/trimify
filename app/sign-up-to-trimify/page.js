@@ -94,7 +94,10 @@ const Signup = () => {
             });
 
             // Redirect to the user dashboard
-            router.push(`/user/${data.Username.toLowerCase()}/dashboard`);
+           setTimeout(() => {
+             router.push(`/login`);
+           }, 3000); 
+           
           }
         });
       }
@@ -120,7 +123,7 @@ const Signup = () => {
         {/* Main container for the sign-up form */}
         <div className="bg-slate-900 z-10 w-full max-w-[80vh] h-auto rounded-md shadow-md p-4">
           {/* Title of the sign-up page */}
-          <h1 className="text-white font-bold text-2xl text-center mt-5 ">
+          <h1 className="text-white bree-bold font-bold text-3xl text-center mt-5 ">
             Sign up to Trimify
           </h1>
           {/* Sign-up form */}
@@ -134,7 +137,7 @@ const Signup = () => {
               <input
                 title="Enter your first name"
                 autoComplete="given-name" // Enable autocomplete for first name
-                className="bg-gray-800 text-white p-2 outline-green-300 font-bold w-[130%]"
+                className="bg-gray-800 text-white py-3 p-2 focus:scale-102 focus:outline-green-600 transition-all duration-300 ease-in-out font-bold w-[130%]"
                 type="text"
                 {...register("FirstName", { required: true })} // Register input field
                 id="First Name"
@@ -142,7 +145,7 @@ const Signup = () => {
               />
               <input
                 title="Enter your last name"
-                className="bg-gray-800 text-white p-2 w-full sm:[20%] outline-green-300 font-bold"
+                className="bg-gray-800 text-white py-3 p-2 w-full sm:[20%] focus:scale-102 focus:outline-green-600 transition-all duration-300 ease-in-out font-bold"
                 autoComplete="family-name" // Enable autocomplete for last name
                 type="text"
                 {...register("LastName", { required: true })} // Register input field
@@ -154,7 +157,7 @@ const Signup = () => {
             <input
               title="Enter email or mobile number"
               autoComplete="email" // Enable autocomplete for email
-              className="bg-gray-800 text-white p-2 outline-green-300 font-bold"
+              className="bg-gray-800 text-white py-3 p-2 focus:scale-102 focus:outline-green-600 transition-all duration-300 ease-in-out font-bold"
               id="Email or Mobile Number"
               type="text"
               {...register("Gmail", { required: true })} // Register input field
@@ -164,7 +167,7 @@ const Signup = () => {
             {/* Input field for username */}
             <input
               title="Enter your new username"
-              className="bg-gray-800 text-white p-2 outline-green-300 font-bold"
+              className="bg-gray-800 text-white py-3 p-2 focus:scale-102 focus:outline-green-600 transition-all duration-300 ease-in-out font-bold"
               autoComplete="additional-name webauthn" // Enable autocomplete for username
               type="text"
               placeholder="Enter your new username"
@@ -198,7 +201,7 @@ const Signup = () => {
                 type={show1stPassword ? "text" : "password"} // Toggle password visibility
                 autoComplete="new-password" // Enable autocomplete for password
                 placeholder="Enter your password"
-                className="bg-gray-800 text-white w-full pr-12 px-2 py-2 outline-green-200 font-bold"
+                className="bg-gray-800 text-white py-3 w-full pr-12 px-2 py-3 focus:scale-102 transition-all duration-300 ease-in-out focus:outline-green-600 font-bold"
               />
               {/* Toggle password visibility */}
               <Image
@@ -228,7 +231,7 @@ const Signup = () => {
                 type={showPassword ? "text" : "password"} // Toggle confirm password visibility
                 autoComplete="confirm-password" // Enable autocomplete for confirm password
                 placeholder="Re-enter your password"
-                className="bg-gray-800 text-white w-full px-2 py-2 outline-green-200 font-bold"
+                className="bg-gray-800 text-white py-3 w-full px-2 py-2 focus:scale-102 transition-all duration-300 ease-in-out focus:outline-green-600 font-bold  "
               />
               {/* Toggle confirm password visibility */}
               <Image
@@ -263,7 +266,7 @@ const Signup = () => {
               title="Create your account"
               aria-label="Create your account"
               type="submit"
-              className="cursor-pointer transition-all ease-in-out duration-300 font-bold hover:bg-white hover:text-black w-full p-2 bg-green-600 text-white rounded-[3px]"
+              className={loading ? " transition-all ease-in-out duration-300 font-bold bg-white text-black w-full p-4 hover:scale-100 rounded-[3px] cursor-not-allowed roboto-bold":"cursor-pointer transition-all ease-in-out duration-300 font-bold hover:bg-white hover:text-black w-full p-4 bg-green-600 text-white rounded-[3px] hover:scale-104 roboto-bold"}
               disabled={loading} // Disable button when loading
             >
               {loading ? "Creating Account..." : "Create Account"}{" "}

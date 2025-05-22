@@ -26,7 +26,7 @@ export const authOptions = {
          let newuser= await Data.create({
             FullName: user.name,
             Gmail: user.email,  // Gmail me email daal diya
-            Username:user.email.split("@")[0].toLowerCase(),
+            Username:user.email.split("@")[0],
             Image: user.image,
             Provider: "google",
           })

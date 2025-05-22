@@ -26,7 +26,7 @@ export async function POST(req) {
     FirstName: data.FirstName,
     LastName: data.LastName,
     Gmail: data.Gmail,
-    Username: data.Username.toLowerCase(),
+    Username: data.Username,
     Password: hashpass,
   });
   if (!newdata) {

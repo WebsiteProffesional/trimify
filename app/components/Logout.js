@@ -36,7 +36,7 @@ const Logout = () => {
       <div className='flex justify-between items-center p-3 h-[62px]'>
         {/* Logo + Slogan */}
         <div className='flex flex-col sm:flex-row sm:items-center py-[2px] '>
-          <h1 className='text-3xl font-extrabold text-gray-900'>Trimify</h1>
+          <h1 className='bree text-3xl font-extrabold text-gray-900'>Trimify</h1>
           <p className=' ml-1 mt-3 text-black text-sm font-extrabold'>Shorten smart · Share fast</p>
         </div>
 

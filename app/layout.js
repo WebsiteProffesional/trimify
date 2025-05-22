@@ -2,31 +2,24 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SessionWrapper from "./components/SessionProvider";
 import Script from "next/script";
 import "./globals.css";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
-export const metadata = {
-  title: "Trimify.Shorten-smart,Share-fast",
-  description:
-    "Trimify is a URL shortener that helps you shorten, share, and track your links easily.",
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
-};
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
         <link
           rel="icon"
           href="/favicon.png"
@@ -36,7 +29,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+       
       >
         {/* Move Script here */}
         <Script

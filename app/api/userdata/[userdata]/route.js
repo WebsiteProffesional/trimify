@@ -22,7 +22,7 @@ export async function GET(request, ) {
 
     return NextResponse.json({ urls });
   } catch (error) {
-    
+    console.error("Error fetching URLs:", error);
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }
@@ -40,7 +40,7 @@ export async function DELETE(request) {
     const id = parts[parts.length - 1];
     let shortname=await request.json()
    
-    await Url.deleteOne({ shortUrl:shortname.shortUrl });
+    await Url.deleteOne({ shortName:shortname.shortName });
     return NextResponse.json({ message: "URL deleted successfully" }, { status: 200 });
     }catch(err){
      
