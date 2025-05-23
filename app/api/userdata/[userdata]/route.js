@@ -11,15 +11,12 @@ export async function GET(request, ) {
         const { pathname } = new URL(request.url);
         const parts = pathname.split("/");
         const username = parts[parts.length - 1];
-       
-    
-
     if (!username) {
       return NextResponse.json({ error: "Username is required" }, { status: 400 });
     }
 
     const urls = await Url.find({ username:username });
-
+    
     return NextResponse.json({ urls });
   } catch (error) {
     console.error("Error fetching URLs:", error);

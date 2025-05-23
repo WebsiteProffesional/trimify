@@ -29,7 +29,7 @@ export const dynamic = "force-static";
 export default function Home() {
   return (
     <>
-      <div className="relative h-full min-h-[76vh] w-full bg-slate-900 z-10">
+      <div className="relative  w-full bg-slate-900 z-10 overflow-auto"  style={{ minHeight: "calc(100vh - 142px)" ,height:"full" }}>
         <div className="text-white flex flex-col md:flex-row items-center p-12 justify-center gap-4 md:gap-32 z-10">
           {/* Left section */}
           <div className="flex flex-col items-center justify-center gap-2">
@@ -47,7 +47,7 @@ export default function Home() {
               <Link href="/generate-shortUrl">
                 <button
                   title="Click to generate short URLs"
-                  className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full px-5 py-2 text-white roboto-bold hover:text-red-900 hover:bg-white md:max-h-[7vh]"
+                  className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
                 >
                   Try Trimify
                 </button>
@@ -56,7 +56,7 @@ export default function Home() {
               <Link href="/login">
                 <button
                   title="Click to login to Trimify"
-                  className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full px-5 py-2 text-white roboto-bold hover:text-red-900 hover:bg-white md:max-h-[7vh]"
+                  className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
                 >
                   Login for Free
                 </button>
@@ -99,7 +99,7 @@ export default function Home() {
               only requires user login so why wait? Signup Now
             </p>
             <Link href="/sign-up-to-trimify">
-              <button className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full px-5 py-2 text-white roboto-bold hover:text-red-900 hover:bg-white md:max-h-[7vh]">
+              <button className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full text-center p-4 text-white roboto-bold hover:text-red-900 hover:bg-white ] hover:scale-103">
                 Signup Now
               </button>
             </Link>

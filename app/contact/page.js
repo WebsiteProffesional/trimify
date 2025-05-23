@@ -3,8 +3,9 @@ import React from 'react';
 const Contact = () => {
   return (
     <main
-      className="relative min-h-[78vh] w-full bg-slate-900 z-2 mx-auto flex p-10"
+      className="relative  w-full bg-slate-900 z-2 mx-auto flex p-10"
       aria-label="Main contact section"
+      style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}
     >
       <section
         className="mx-auto bg-slate-900 max-w-4xl w-full text-white z-10 px-10 py-2 flex flex-col items-center gap-4 rounded-xl"

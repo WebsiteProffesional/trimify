@@ -119,7 +119,7 @@ const Signup = () => {
 
       {/* Toast container for notifications */}
       <ToastContainer className={"mt-12"} />
-      <div className="relative h-auto w-full p-2 bg-slate-900 flex justify-center items-center">
+      <div className="relative  w-full p-2 bg-slate-900 flex justify-center items-center" style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}>
         {/* Main container for the sign-up form */}
         <div className="bg-slate-900 z-10 w-full max-w-[80vh] h-auto rounded-md shadow-md p-4">
           {/* Title of the sign-up page */}

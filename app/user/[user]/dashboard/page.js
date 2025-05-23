@@ -7,15 +7,19 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 export default function Page({ params }) {
-  const [data, setData] = useState([]); // Data state
+  const [data, setdata] = useState([]); // Data state
   const [loading, setLoading] = useState(false);
   const [confirming, setconfirming] = useState(false);
-
+ 
   const router = useRouter();
-
+   
   const username = params.user;
-  const [count, setcount] = useState(0);
+
   const { data: session, status } = useSession();
+  useEffect(() => {
+    console.log(data)
+  }, [])
+  
   useEffect(() => {
     async function tokenfetch() {
       let data = await localStorage.getItem("Token");
@@ -38,6 +42,7 @@ export default function Page({ params }) {
 
   useEffect(() => {
     const fetchData = async () => {
+    setLoading(true)
       try {
         const response = await fetch(`/api/userdata/${username}`);
 
@@ -45,10 +50,11 @@ export default function Page({ params }) {
           throw new Error("Failed to fetch data");
         }
 
-        const data = await response.json();
+        const data1 = await response.json();
 
-        if (Array.isArray(data.urls)) {
-          setData(data); // Update state with fetched data
+        if (Array.isArray(data1.urls)) {
+          setdata(data1.urls); // Update state with fetched data
+          
         } else {
           toast.error("Invalid data format, try again later");
         }
@@ -59,8 +65,8 @@ export default function Page({ params }) {
       }
     };
 
-      if (loading) fetchData();
-  }, [username, loading]); // Re-fetch when loading state is set to false
+     fetchData();
+  }, [username]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
   const handleDelete = async (item) => {
@@ -78,7 +84,7 @@ export default function Page({ params }) {
       const response = await deleteUrl.json();
       if (deleteUrl.ok) {
         toast.success("URL deleted successfully");
-        setData((prevData) => ({
+        setdata((prevData) => ({
           ...prevData,
           urls: prevData.urls.filter((url) => url.shortName !== item),
         }));
@@ -97,11 +103,12 @@ export default function Page({ params }) {
   return (
     <>
       <ToastContainer className={"pt-12"} />
-      <div className="flex flex-col items-center min-h-[78vh]  h-auto bg-gray-800 text-white">
+      <div className="flex flex-col items-center  bg-gray-800 text-white"style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}>
         <div className="my-2 bg-gray-900 mx-auto max-w-[210vh] w-full  min-h-[60vh]rounded-xl flex flex-col gap-3 z-10 p-3 shadow-2xl shadow-black ">
           <header>
             <h1 className="bree-bold text-2xl text-center capitalize mt-1">
-              <span className="underline"> {username}</span> Welcome to your dashboard
+              <span className="underline"> {username}</span> Welcome to your
+              dashboard
             </h1>
             <p className="capitalize text-xl roboto-bold text-center mt-4 md:mt-1">
               All your URLs and their analytics will be shown to you in your
@@ -124,7 +131,7 @@ export default function Page({ params }) {
                     src="https://cdn.lordicon.com/jgnvfzqg.json"
                     trigger="hover"
                     colors="primary:white,secondary:#4ade80"
-                    style={{ width: "28px", height: "28px", }}
+                    style={{ width: "28px", height: "28px" }}
                   ></lord-icon>
                   Create New Url
                 </Link>
@@ -133,91 +140,91 @@ export default function Page({ params }) {
           </header>
           <main className="flex-grow">
             <div className=" bg-gray-700 rounded-xl w-full overflow-x-auto p-2">
-              <div className="">
-                <table className="table-auto w-full  shadow-2xl shadow-white">
-                  <thead className=" bg-gray-400 w-full text-black h-[40px] roboto-bold md:text-xl rounded-2xl">
-                    <tr>
-                      <th>Website</th>
-                      <th>Short URL</th>
-                      <th>Time of Creation</th>
-                      <th>Analytics</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  {data?.urls?.map((item, index) => (
-                    <tbody className="w-full " key={index}>
-                      <tr className="text-center text-white roboto-semibold text-xl bg-gray-900 h-[50px] rounded-2xl border-b-2 border-gray-950 ">
-                        <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
-                          {item.longUrl}+.............hsk
-                        </td>
-                        <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
-                          <div className="inline-flex gap-2">
-                        <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
-                          <div className="inline-flex gap-2">
-                            <Link
-                             
-                              title="Click to redirect"
-                              target="_blank"
-                              className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
-                              className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
-                              href={item.fullShortUrl}
-                            >
-                              {item.fullShortUrl}
-                            </Link>
+              <table className="table-auto w-full shadow-2xl shadow-white">
+                <thead className="bg-gray-400 w-full text-black h-[40px] roboto-bold md:text-xl rounded-2xl">
+                  <tr>
+                    <th>Website</th>
+                    <th>Short URL</th>
+                    <th>Time of Creation</th>
+                    <th>Analytics</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="w-full">
+                  {data.map((item, index) => (
+                    <tr
+                      key={index}
+                      className="text-center text-white roboto-semibold text-xl bg-gray-900 h-[50px] rounded-2xl border-b-2 border-gray-950"
+                    >
+                      <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
+                        {item.longUrl} + .............hsk
+                      </td>
 
-                            <span className="  gap-2 mt-2">
-                            <span className="  gap-2 mt-2">
-                              <lord-icon
-                                aria-label="Copy to Clipboard"
-                                onClick={() => {
-                                  handleCopy(item.fullShortUrl);
-                                }}
-                                alt="Copy to Clipboard"
-                                src="https://cdn.lordicon.com/iykgtsbt.json"
-                                trigger="hover"
-                                colors="primary:black,secondary:#08a88a"
-                                className="w-[28px] h-[28px] cursor-pointer"
-                                title="Copy to Clipboard"
-                              ></lord-icon>
-                            </span>
-                          </div>
-                        </td>
-                        <td className="text-center py-2 bg-slate-600">
-                          {item.time + " " + item.date}
-                        </td>
-                        <td className="text-center py-2 bg-slate-600">
+                      <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
+                        <div className="inline-flex gap-2 justify-center items-center">
                           <Link
-                            title="Click to see the URL analytics"
-                            href={`analytics/${item.shortName}`}
+                            title="Click to redirect"
                             target="_blank"
-                            className="hover:underline"
+                            className="underline transition-all ease-in-out duration-600 hover:text-black mt-1.5"
+                            href={item.fullShortUrl}
                           >
-                            Click here to see Analytics
+                            {item.fullShortUrl}
                           </Link>
-                        </td>
-                        <td className="text-center py-2 bg-slate-600">
-                          <lord-icon
-                            title="Click to delete this URL"
-                            aria-label="Delete this URL"
-                            onClick={() => {
-                              handleDelete(item.shortName);
-                            }}
-                            alt="Delete this URL"
-                            src="https://cdn.lordicon.com/jmkrnisz.json"
-                            trigger="hover"
-                            colors="primary:black,secondary:#e83a30"
-                            style={{
-                              width: "40px",
-                              height: "40px",
-                              cursor: "pointer",
-                            }}
-                          ></lord-icon>
-                        </td>
-                      </tr>
-                    </tbody>
-                  ))}
-                </table>
-              </div>
+
+                          <span className="gap-2 mt-2 cursor-pointer">
+                            <lord-icon
+                              aria-label="Copy to Clipboard"
+                              onClick={() => {
+                                handleCopy(item.fullShortUrl);
+                              }}
+                              alt="Copy to Clipboard"
+                              src="https://cdn.lordicon.com/iykgtsbt.json"
+                              trigger="hover"
+                              colors="primary:black,secondary:#08a88a"
+                              className="w-[28px] h-[28px]"
+                              title="Copy to Clipboard"
+                            ></lord-icon>
+                          </span>
+                        </div>
+                      </td>
+
+                      <td className="text-center py-2 bg-slate-600">
+                        {item.time + " " + item.date}
+                      </td>
+
+                      <td className="text-center py-2 bg-slate-600">
+                        <Link
+                          title="Click to see the URL analytics"
+                          href={`analytics/${item.shortName}`}
+                          target="_blank"
+                          className="hover:underline"
+                        >
+                          Click here to see Analytics
+                        </Link>
+                      </td>
+
+                      <td className="text-center py-2 bg-slate-600">
+                        <lord-icon
+                          title="Click to delete this URL"
+                          aria-label="Delete this URL"
+                          onClick={() => {
+                            handleDelete(item.shortName);
+                          }}
+                          alt="Delete this URL"
+                          src="https://cdn.lordicon.com/jmkrnisz.json"
+                          trigger="hover"
+                          colors="primary:black,secondary:#e83a30"
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            cursor: "pointer",
+                          }}
+                        ></lord-icon>
+                      </td>
+                    </tr>
+                 ))}
+                </tbody>
+              </table>
             </div>
           </main>
         </div>

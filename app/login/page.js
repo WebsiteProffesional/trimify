@@ -114,7 +114,7 @@ const Login = () => {
     <>
       {/* Toast container for notifications */}
       <ToastContainer className={"mt-12"} />
-      <div className="relative min-h-[78vh] h-full w-full bg-slate-900 flex flex-col justify-center items-center p-2">
+      <div className="relative  w-full bg-slate-900 flex flex-col justify-center items-center p-2" style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}>
         {/* Main container for the login form */}
         <div className="bg-gray-900 rounded-2xl p-4 max-w-[80vh] w-full h-auto flex flex-col gap-3 items-center justify-center z-2">
           {/* Title of the login page */}

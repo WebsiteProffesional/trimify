@@ -111,7 +111,7 @@ export default function UserUrl({ params }) {
     <>
       {/* Toast container for notifications */}
       <ToastContainer className={"pt-12"} />
-      <div className="relative min-h-[78vh] h-full w-full bg-slate-900 flex justify-center items-center p-4">
+      <div className="relative  w-full bg-slate-900 flex justify-center items-center p-4" style={{ minHeight: "calc(100vh - 142px)", height: "full" }}>
         {/* Main container for the form */}
         <div
           className="flex flex-col z-10 bg-slate-700  sm:max-w-[50vh] md:max-w-[90vh] justify-center items-center min-h-[46vh] md:min-h-[60vh] w-full text-white

@@ -5,7 +5,7 @@ import Data from "@/app/models/Sign-up";
 
 export async function POST(req) {
   await connectDB();
-  let data = await req.json();
+  try {let data = await req.json();
   const existingUser = await Data.findOne({ Username: data.Username });
   if (existingUser) {
     return NextResponse.json({

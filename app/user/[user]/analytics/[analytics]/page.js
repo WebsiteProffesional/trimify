@@ -1,45 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import { useEffect } from "react"; // Import useEffect for side effects
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+
 import Head from "next/head"; // Import Head for managing the document head
 import Image from "next/image";
 import { faPhoneLaptop } from "@fortawesome/free-solid-svg-icons";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+import { Wind } from "lucide-react";
 export default function UserUrl({ params }) {
   const username = params.analytics; // Extract the username from the route parameters
   const [analytics, setanalytics] = useState(); // State for the data
   const [clicks, setclicks] = useState("");
-  const isMobile = useIsMobile(); // ✅ Call it here
-  function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-      const updateSize = () => setIsMobile(window.innerWidth < 640);
-      updateSize();
-      window.addEventListener("resize", updateSize);
-      return () => window.removeEventListener("resize", updateSize);
-    }, []);
-    return isMobile;
-  }
-
-  const getDeviceData = () => {
-    if (!analytics || analytics.length === 0) return [];
-
-    const counts = analytics.reduce((acc, entry) => {
-      const device = entry.Device || "Unknown";
-      acc[device] = (acc[device] || 0) + 1;
-      return acc;
-    }, {});
-
-    return Object.entries(counts).map(([name, value]) => ({ name, value }));
-  };
-  const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff7f50", "#a0522d"];
+  const [clicksPerDay, setclicksPerDay] = useState([]);
+  const [showChart, setshowChart] = useState(false);
+ 
   useEffect(() => {
     async function fetchData() {
       let a = await fetch(`/api/analytics/${username}`);
@@ -47,10 +29,65 @@ export default function UserUrl({ params }) {
       setanalytics(result.analytics); // Set the data in state
       setclicks(result.clicks);
     }
-    fetchData();
+    const results = fetchData();
   }, [username]); // Dependency array to run effect only when username changes
-  useEffect(() => {}, []);
 
+  useEffect(() => {
+    if (!analytics) return;
+    function getLast7Days() {
+      const today = new Date();
+      const last7Days = [];
+
+      for (let i = 6; i >= 0; i--) {
+        const pastDate = new Date(today);
+        pastDate.setDate(today.getDate() - i);
+        last7Days.push(pastDate.toLocaleDateString());
+      }
+      return last7Days;
+    }
+    function getClicksPerDay() {
+      const last7Days = getLast7Days(); // 👈 یہ وہی فنکشن جو آپ نے اوپر بنایا
+      const clicksPerDay = {};
+
+      // initialize all 7 days with 0
+      last7Days.forEach((date) => {
+        clicksPerDay[date] = 0;
+      });
+
+      // count clicks per day
+      analytics.forEach((entry) => {
+        const dateStr = new Date(entry.timestamp).toLocaleDateString();
+        if (clicksPerDay[dateStr] !== undefined) {
+          clicksPerDay[dateStr]++;
+        }
+      });
+      return clicksPerDay;
+    }
+
+    const clicksperday = getClicksPerDay();
+
+    setclicksPerDay(clicksperday);
+  }, [analytics]);
+  const chartData = Object.entries(clicksPerDay).map(([date, clicks]) => ({
+    date,
+    clicks,
+  }));
+  function useWindowWidth() {
+    const [width, setWidth] = useState(() => window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return width;
+  }
+  const width=useWindowWidth();
+  const handleShowChart = () => {
+    setshowChart(!showChart);
+  };
   return (
     <>
       <Head>
@@ -70,63 +107,64 @@ export default function UserUrl({ params }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
       </Head>
-      <div className="relative h-full min-h-[76vh]  w-full bg-slate-900 -z-10 pt-6 ">
-        <div className="container relative w-full bg-white z-10 mx-auto min-h-full rounded-lg shadow-lg p-6">
-          <h2 className="bree-bold font-bold text-xl md:text-3xl text-center ">
-            Analytic Page of{" "}
+      <div
+        className="relative w-full bg-slate-900 z-10 p-4"
+        style={{ minHeight: "calc(100vh - 142px)", height: "full" }}
+      >
+        <div className="p-4 relative w-full bg-white z-10 mx-auto min-h-full rounded-lg shadow-lg py-6 ">
+          <h2 className="bree-bold font-bold text-xl md:text-3xl text-center  ">
+            Analytic Page of
             <span className="underline">
-              <b>{username}</b>
+              <b> {username}</b>
             </span>{" "}
             Url
           </h2>
-          <div className=" mt-2 md:my-13">
+          <div className="md:mt-2 mt-6 md:my-13">
             {/* Total Clicks Card Centered */}
-            <div className="flex gap-2 justify-center">
-              <div className="bg-blue-100 text-blue-900 font-semibold p-1 rounded-lg md:rounded-xl  md:p-6 shadow-md text-center w-40">
+            <div className=" gap-2 flex flex-col justify-center ">
+              <div className="bg-blue-100 text-blue-900 mt-4 font-semibold p-3 rounded-lg md:rounded-xl  md:p-6 shadow-md text-center w-40 mx-auto">
                 <p className=" text-sm">Total Clicks</p>
                 <p className="text-2xl font-bold">{clicks}</p>
               </div>
-            </div>
+              <button
+                style={{ cursor: "pointer" }}
+                onClick={handleShowChart}
+                className="cursor-pointer z-10 roboto-bold mt-4 text-blue-600 underline "
+              >
+                {showChart ? "Hide Chart" : "Show Chart of Last 7 days"}
+              </button>
+              {showChart && (
+                <>
+                  <div className="w-full min-w-[400px] md:max-w-[700px] mx-auto md:pr-0 pr-20">
+                    <ResponsiveContainer width="100%" height={350}>
+                      <BarChart
+                        data={chartData}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                      >
+                        <CartesianGrid strokeDasharray="2 2" />
+                        <XAxis
+                          dataKey="date"
+                          interval={0}
+                          angle={width < 600 ? -60:0} // Optional: adjust angle based on screen width
+                        />
+                        <YAxis />
+                        <Tooltip />
+                        <Bar dataKey="clicks" fill="#8884d8" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
 
-            {/* Pie Chart Positioned in Top-Right */}
-            {/* <div className="md:absolute mx-auto bottom-[52px] md:right-4 w-[200px] h-[200px]  md:w-[260px] md:h-[260px] max-w-auto ">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={getDeviceData()}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={isMobile ? 50 : 80} // Smaller on mobile
-                    fill="#8884d8"
-                    label
-                  >
-                    {getDeviceData().map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend
-                    layout="horizontal"
-                    verticalAlign="bottom"
-                    align="center"
-                    height={36}
-                    wrapperStyle={{
-                      paddingTop: 0,
-                      marginTop: 0,
-                      lineHeight: "5px",
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </div> */}
+                  <h2 className="text-center bree-bold mb-2 md:mb-0">
+                    Click Counts on Last 7 days
+                  </h2>
+                </>
+              )}
+            </div>
           </div>
           <div className="w-full overflow-x-auto">
-            <h2 className="roboto-bold text-2xl mb-2">Recent 30 Clicks</h2>
+            <h2 className=" md:bree-bold  mt-2 text-2xl mb-2">
+              Recent 30 Clicks
+            </h2>
             <table className="table-auto w-full text-center border-collapse border border-slate-400 overflow-x-scroll">
               <thead className="bg-gray-200">
                 <tr>
@@ -200,40 +238,45 @@ export default function UserUrl({ params }) {
               </thead>
 
               <tbody>
-                {analytics?.map((item, index) => (
-                  <tr key={index} className="border-t border-slate-300">
-                    <td className="px-4 py-2">
-                      <div className="flex justify-center">
-                        {new Date(item.timestamp).toLocaleDateString()}
-                      </div>
-                    </td>
-                    <td className="px-4 py-2">
-                      <div className="flex justify-center ">
-                        {new Date(item.timestamp).toLocaleTimeString()}
-                      </div>
-                    </td>
-                    <td className="py-2 pr-8">
-                      <div className="flex justify-center">{item.Device}</div>
-                    </td>
-                    <td className="py-2 pr-13">
-                      <div className="flex justify-center">{item.Browser}</div>
-                    </td>
-                    <td className=" py-2  pr-4">
-                      <div className="flex justify-center ">{item.City}</div>
-                    </td>
-                    <td className="px-8 py-4">
-                      <div className="flex items-center justify-center gap-2">
-                        {item.countryName}
-                        <Image
-                          src={item.countryFlag}
-                          width={32}
-                          height={32}
-                          alt="Country Flag"
-                        />
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                {analytics
+                  ?.slice(-30)
+                  .reverse()
+                  .map((item, index) => (
+                    <tr key={index} className="border-t border-slate-300">
+                      <td className="px-4 py-2">
+                        <div className="flex justify-center">
+                          {new Date(item.timestamp).toLocaleDateString()}
+                        </div>
+                      </td>
+                      <td className="px-4 py-2">
+                        <div className="flex justify-center ">
+                          {new Date(item.timestamp).toLocaleTimeString()}
+                        </div>
+                      </td>
+                      <td className="py-2 pr-8">
+                        <div className="flex justify-center">{item.Device}</div>
+                      </td>
+                      <td className="py-2 pr-13">
+                        <div className="flex justify-center">
+                          {item.Browser}
+                        </div>
+                      </td>
+                      <td className=" py-2  pr-4">
+                        <div className="flex justify-center ">{item.City}</div>
+                      </td>
+                      <td className="px-8 py-4">
+                        <div className="flex items-center justify-center gap-2">
+                          {item.countryName}
+                          <Image
+                            src={item.countryFlag}
+                            width={32}
+                            height={32}
+                            alt="Country Flag"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
