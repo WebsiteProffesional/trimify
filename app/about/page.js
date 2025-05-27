@@ -11,7 +11,7 @@ export const metadata={
 const About = () => {
   return (
     <>
-      <main className="relative min-h-[78vh] w-full bg-slate-900 z-2 mx-auto flex p-10">
+      <main className="relative min-h-[80.8vh] w-full bg-slate-900 z-2 mx-auto flex p-10">
         <div className="mx-auto bg-slate-900 max-w-5xl w-full text-white z-10 px-10 py-2 flex flex-col items-center gap-4 rounded-xl">
           <header>
             <h1
