@@ -109,6 +109,10 @@ export default function UserUrl({ params }) {
   // Render the component
   return (
     <>
+    <head>
+      <title>Create custom URLs for free</title>
+      <meta name="description" content="Create the short urls with custom domain name and feel free to analyze them through dashboard" />
+    </head>
       {/* Toast container for notifications */}
       <ToastContainer className={"pt-12"} />
       <div className="relative  w-full bg-slate-900 flex justify-center items-center p-4" style={{ minHeight: "calc(100vh - 142px)", height: "full" }}>
@@ -124,6 +128,7 @@ export default function UserUrl({ params }) {
           {/* Input for the long URL */}
           <input
             title="Enter the long url"
+            aria-label="Enter Long URL"
             autoComplete="on"
             className="bg-gray-800 z-2 font-bold outline-purple-700 rounded-2xl max-w-[80vh] w-full text-gray-white px-4 py-4  shadow-2xs shadow-white focus:scale-102 focus:outline-purple-900 transition-all duration-300 ease-in-out"
             placeholder="Enter Long url"
@@ -134,6 +139,7 @@ export default function UserUrl({ params }) {
           {/* Input for the short name */}
           <input
             title="Enter the short name"
+            aria-label="Enter Short Name"
             autoComplete="on"
             className="bg-gray-800 z-2 roboto-bold  outline-purple-700 rounded-2xl max-w-[80vh] w-full text-gray-white px-4 py-4  shadow-2xs shadow-white focus:scale-102 focus:outline-purple-900 transition-all duration-300 ease-in-out"
             placeholder="Enter Short Name"
@@ -144,6 +150,7 @@ export default function UserUrl({ params }) {
           {/* Button to trigger URL generation */}
           <button
             title="Click to generate shorturl"
+            aria-label="Click to generate shorturl"
             className={
               loading
                 ? " md:max-w-[79vh] max-w-[75vh] w-full sm:rounded-xl rounded-[5px] cursor-not-allowed z-2 p-4 shadow-2xs shadow-white text-xl roboto-bold text-red-900 bg-white transition-all duration-400 ease-in-out"
@@ -194,7 +201,10 @@ export default function UserUrl({ params }) {
                   ></lord-icon>
                 </span>
                 </div>
-                  <button className="text-xl font-semibold bg-slate-900 text-white p-3 rounded-xl hover:scale-102 transition-all duration-300 ease-in-out hover:text-white hover:bg-purple-700 px-8 ">
+                  <button 
+                  title="Go back to dashboard"
+                  aria-label="Go back to dashboard"
+                  className="text-xl font-semibold bg-slate-900 text-white p-3 rounded-xl hover:scale-102 transition-all duration-300 ease-in-out hover:text-white hover:bg-purple-700 px-8 ">
                 <Link href={`/user/${username}/dashboard`}>Go back to dashboard</Link>
               </button>
               </motion.div>

@@ -23,12 +23,13 @@ export default async function Page({ params }) {
   const city = locationData.city ?? "City not found";
   const flag = locationData.country_flag ?? "Region not found";
   const country = locationData.country_name ?? "Country not found";
-  const CountryCode = locationData.country_code3 ?? "Country code not found";
+  const countryCode = locationData.country_code3 ?? "Country code not found";
 
   const userAgent = headersList.get("user-agent") || "";
   const parser = new UAParser(userAgent);
   const deviceType = parser.getDevice().type ?? "Desktop";
   const browser = parser.getBrowser().name ?? "Unknown";
+
   const { shortName } = params;
 
   await connectDB();
@@ -38,7 +39,7 @@ export default async function Page({ params }) {
     redirect("/not-found");
   }
 
-  let urlDoc = existing;
+  let urlDoc;
 
   if (existing.username !== "guest") {
     urlDoc = await Url.findOneAndUpdate(
@@ -52,7 +53,7 @@ export default async function Page({ params }) {
             Device: deviceType,
             City: city,
             countryFlag: flag,
-            countryCode: CountryCode,
+            countryCode: countryCode,
             countryName: country,
             IP: hashedIP,
           },
@@ -60,7 +61,16 @@ export default async function Page({ params }) {
       },
       { new: true }
     );
+  } else {
+    urlDoc = await Url.findOneAndUpdate(
+      { shortName },
+      {
+        $inc: { clicks: 1 },
+      },
+      { new: true }
+    );
   }
 
+  // Final redirection
   redirect(urlDoc.longUrl);
 }

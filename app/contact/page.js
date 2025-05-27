@@ -1,5 +1,12 @@
 import React from 'react';
-
+export const metadata = {
+  title: "Contact - Trimify", 
+  description: "Get in touch with Trimify for feedback and support. Contact us via email or phone.We will response you as soon as possible. We are always waiting for your feedback! ", 
+  keywords: ["Trimify", "Contact", "Feedback", "Support", "URL Shortener"],
+    alternates:{
+    canonicals:"/contact"
+  }
+};
 const Contact = () => {
   return (
     <main

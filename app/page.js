@@ -1,35 +1,65 @@
 import Link from "next/link";
 import globalcss from "./globals.css";
-
+import { icons } from "lucide-react";
 export const metadata = {
-  title: "Trimify — Shorten Smart, Share Fast",
+title: "Trimify – The Ultimate URL Shortener",
   description:
-    "Trimify is a URL shortener that helps you create short, memorable links for easy sharing. Track link performance and manage your links effortlessly. Say goodbye to long URLs and hello to Trimify!",
+    "Trimify helps you create short, memorable links for easy sharing. Track clicks, manage your links, and say goodbye to long URLs with Trimify!",
+  keywords: [
+    "Trimify-The ultimate url shortner",
+    "trimifiy",
+    "URL shortener",
+    "Free short URL generator",
+    "Link analytics",
+    "Short links",
+    "Track clicks",
+    "Trimify",
+    "custom short urls",
+    "Login to Trimify",
+    "Sign up to Trimify",
+    "Dashboard of Trimify"
+  ],
+  icons:{
+    icon: '/favicon.png',  // favicon
+  },
+  metadataBase: new URL("http://localhost:3000"), // Replace with your domain later
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Trimify",
+    title: "Trimify – The Ultimate URL Shortener",
     description:
-      "Trimify is a URL shortener that helps you create short, memorable links for easy sharing. Track link performance and manage your links effortlessly. Say goodbye to long URLs and hello to Trimify!",
-    url: "https://trimify.vercel.app/",
+      "Shorten, manage, and track links easily. Trimify lets you create memorable URLs and measure performance in real time.",
+    url: "/",
     siteName: "Trimify",
     images: [
       {
-        url: "/favicon.png",
+        url: "/favicon.png", // Recommended: 1200x630 og-image instead of favicon
         width: 800,
         height: 600,
+        alt: "Trimify logo",
       },
     ],
     locale: "en-US",
     type: "website",
   },
-  keywords: ["URL shortener", "link shortener", "short links", "Trimify"],
+  twitter: {
+    card: "summary_large_image",
+    title: "Trimify – Smart URL Shortening",
+    description:
+      "Fast, reliable, and free link shortener with real-time analytics. Try Trimify today!",
+    images: ["/og-image.png"],
+  },
 };
-
 export const dynamic = "force-static";
 
 export default function Home() {
   return (
     <>
-      <div className="relative  w-full bg-slate-900 z-10 overflow-auto"  style={{ minHeight: "calc(100vh - 142px)" ,height:"full" }}>
+      <div
+        className="relative  w-full bg-slate-900 z-10 overflow-auto"
+        style={{ minHeight: "calc(100vh - 142px)", height: "full" }}
+      >
         <div className="text-white flex flex-col md:flex-row items-center p-12 justify-center gap-4 md:gap-32 z-10">
           {/* Left section */}
           <div className="flex flex-col items-center justify-center gap-2">
@@ -47,15 +77,26 @@ export default function Home() {
               <Link href="/generate-shortUrl">
                 <button
                   title="Click to generate short URLs"
+                  aria-label="Click to generate short URLs"
                   className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
                 >
                   Try Trimify
+                </button>
+              </Link>
+              <Link href="/count-clicks">
+                <button
+                  title="Click to check clicks on URL"
+                  aria-label="Click to check clicks on URL"
+                  className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
+                >
+                  Check clicks on url
                 </button>
               </Link>
 
               <Link href="/login">
                 <button
                   title="Click to login to Trimify"
+                  aria-label="Click to login to Trimify"
                   className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
                 >
                   Login for Free
@@ -99,7 +140,11 @@ export default function Home() {
               only requires user login so why wait? Signup Now
             </p>
             <Link href="/sign-up-to-trimify">
-              <button className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full text-center p-4 text-white roboto-bold hover:text-red-900 hover:bg-white ] hover:scale-103">
+              <button
+                title="Signup to create custom short URLs"
+                aria-label="Signup to create custom short URLs"
+                className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full text-center p-4 text-white roboto-bold hover:text-red-900 hover:bg-white ] hover:scale-103"
+              >
                 Signup Now
               </button>
             </Link>
@@ -164,17 +209,16 @@ export default function Home() {
                 </ul>
 
                 <div className="pl-5 ml-3 mt-4 border-l-4 border-slate-400">
-                  <h4 className="text-xl roboto-bold underline mb-2">
+                  <h3 className="text-xl roboto-bold underline mb-2">
                     Key Features:
-                  </h4>
+                  </h3>
                   <p>
                     The premium mode of Trimify provides some key features that
                     are listed below:
                   </p>
                   <ul className="list-disc list-inside mt-1">
                     <li>
-                      A personalized dashboard for managing all your short
-                      URLs.
+                      A personalized dashboard for managing all your short URLs.
                     </li>
                     <li>Real-time analytics and tracking of link clicks.</li>
                     <li>Ability to edit, delete, and organize your links.</li>
@@ -207,9 +251,9 @@ export default function Home() {
                 </li>
               </ol>
               <div className="mt-6 border-l-4 border-slate-400 ml-3 pl-4">
-                <h4 className="text-xl roboto-bold underline mb-2">
+                <h3 className="text-xl roboto-bold underline mb-2">
                   Security Measures:
-                </h4>
+                </h3>
                 <ol className="list-disc list-inside space-y-2">
                   <li>
                     Never share your Trimify account password with anyone. Doing
@@ -243,6 +287,8 @@ export default function Home() {
                 <Link
                   href="/generate-shortUrl"
                   className="text-blue-600 underline"
+                  title="Click to generate short URLs"
+                  aria-label="Click to generate short URLs"
                 >
                   Trimify Generator
                 </Link>{" "}

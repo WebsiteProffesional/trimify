@@ -11,10 +11,10 @@ export async function POST(req) {
     const fullShortUrl = `${process.env.NEXT_PUBLIC_HOST_URL}/${data.shortName}`;
 
     const { username, longUrl, shortName, time, date, analytics } = data;
-    console.log(data);
+
     // Validate the input data
     const existing = await Url.findOne({ shortName });
-    console.log("Data inserted");
+ 
     if (existing) {
       return NextResponse.json(
         { error: "Short URL already taken!" },
@@ -32,9 +32,9 @@ export async function POST(req) {
       clicks: 0,
       analytics: [],
     });
-    console.log("Data received");
+  
     await newUrl.save();
-    console.log("Data saved");
+
     return NextResponse.json({
       message: "Short URL created successfully",
       fullShortUrl: `${process.env.NEXT_PUBLIC_HOST_URL}/${shortName}`,

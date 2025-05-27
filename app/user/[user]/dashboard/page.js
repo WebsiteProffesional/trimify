@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-
+import Head from "next/head"
 export default function Page({ params }) {
   const [data, setdata] = useState([]); // Data state
   const [loading, setLoading] = useState(false);
@@ -16,10 +16,7 @@ export default function Page({ params }) {
   const username = params.user;
 
   const { data: session, status } = useSession();
-  useEffect(() => {
-    console.log(data)
-  }, [])
-  
+
   useEffect(() => {
     async function tokenfetch() {
       let data = await localStorage.getItem("Token");
@@ -102,6 +99,11 @@ export default function Page({ params }) {
 
   return (
     <>
+      <head>
+        <title>User Dashboard - Trimify</title>
+         <meta name="description" content="A separate dashboard provided by TRIMIFY to its logged user in which they can create custom links and manage them" />
+         <Link rel="canonical" href="/"/>
+      </head>
       <ToastContainer className={"pt-12"} />
       <div className="flex flex-col items-center  bg-gray-800 text-white"style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}>
         <div className="my-2 bg-gray-900 mx-auto max-w-[210vh] w-full  min-h-[60vh]rounded-xl flex flex-col gap-3 z-10 p-3 shadow-2xl shadow-black ">

@@ -1,5 +1,13 @@
 import React from "react";
 
+export const metadata={
+  title: "About - Trimify",
+  description: "Learn more about Trimify, a modern URL shortener built with Next.js,MongoDB and by using a lot of advance programming techniques.",
+  keywords: ["Trimify", "URL Shortener", "Next.js", "Vibe Coding", "Link Management","About"],
+  alternates:{
+    canonicals:"/about"
+  }
+};
 const About = () => {
   return (
     <>

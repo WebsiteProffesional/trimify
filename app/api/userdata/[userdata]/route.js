@@ -19,7 +19,7 @@ export async function GET(request, ) {
     
     return NextResponse.json({ urls });
   } catch (error) {
-    console.error("Error fetching URLs:", error);
+   
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }
