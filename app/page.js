@@ -76,6 +76,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-4 w-full md:max-w-[60vh] justify-center z-10">
               <Link href="/generate-shortUrl">
                 <button
+                  name="Click to generate short URLs"
                   title="Click to generate short URLs"
                   aria-label="Click to generate short URLs"
                   className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
@@ -85,6 +86,7 @@ export default function Home() {
               </Link>
               <Link href="/count-clicks">
                 <button
+                  name="Click to check clicks on URL"
                   title="Click to check clicks on URL"
                   aria-label="Click to check clicks on URL"
                   className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
@@ -96,6 +98,7 @@ export default function Home() {
               <Link href="/login">
                 <button
                   title="Click to login to Trimify"
+                  name="Click to login to Trimify"
                   aria-label="Click to login to Trimify"
                   className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full p-3 text-white roboto-bold hover:text-red-900 hover:bg-white hover:scale-103"
                 >
@@ -141,6 +144,7 @@ export default function Home() {
             </p>
             <Link href="/sign-up-to-trimify">
               <button
+                name="Signup to create custom short URLs"
                 title="Signup to create custom short URLs"
                 aria-label="Signup to create custom short URLs"
                 className="bg-slate-950 cursor-pointer transition-all duration-500 ease-in-out rounded-[14px] md:max-w-[23vh] w-full text-center p-4 text-white roboto-bold hover:text-red-900 hover:bg-white ] hover:scale-103"
