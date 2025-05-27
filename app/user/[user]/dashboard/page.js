@@ -5,14 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import Head from "next/head"
+import Head from "next/head";
 export default function Page({ params }) {
   const [data, setdata] = useState([]); // Data state
   const [loading, setLoading] = useState(false);
   const [confirming, setconfirming] = useState(false);
- 
+
   const router = useRouter();
-   
+
   const username = params.user;
 
   const { data: session, status } = useSession();
@@ -39,7 +39,7 @@ export default function Page({ params }) {
 
   useEffect(() => {
     const fetchData = async () => {
-    setLoading(true)
+      setLoading(true);
       try {
         const response = await fetch(`/api/userdata/${username}`);
 
@@ -51,7 +51,6 @@ export default function Page({ params }) {
 
         if (Array.isArray(data1.urls)) {
           setdata(data1.urls); // Update state with fetched data
-          
         } else {
           toast.error("Invalid data format, try again later");
         }
@@ -62,7 +61,7 @@ export default function Page({ params }) {
       }
     };
 
-     fetchData();
+    fetchData();
   }, [username]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
@@ -101,11 +100,17 @@ export default function Page({ params }) {
     <>
       <head>
         <title>User Dashboard - Trimify</title>
-         <meta name="description" content="A separate dashboard provided by TRIMIFY to its logged user in which they can create custom links and manage them" />
-         <Link rel="canonical" href="/"/>
+        <meta
+          name="description"
+          content="A separate dashboard provided by TRIMIFY to its logged user in which they can create custom links and manage them"
+        />
+        <Link rel="canonical" href="/" />
       </head>
       <ToastContainer className={"pt-12"} />
-      <div className="flex flex-col items-center  bg-gray-800 text-white"style={{ minHeight: "calc(100vh - 142px)" ,height:"full"}}>
+      <div
+        className="flex flex-col items-center  bg-gray-800 text-white"
+        style={{ minHeight: "calc(100vh - 142px)", height: "full" }}
+      >
         <div className="my-2 bg-gray-900 mx-auto max-w-[210vh] w-full  min-h-[60vh]rounded-xl flex flex-col gap-3 z-10 p-3 shadow-2xl shadow-black ">
           <header>
             <h1 className="bree-bold text-2xl text-center capitalize mt-1">
@@ -118,7 +123,7 @@ export default function Page({ params }) {
             </p>
             <div className="flex justify-between items-center px-2 mt-4">
               <h2 className="font-bold text-xl md:text-2xl mt-1 text-start">
-                Your URLs ({data?.urls?.length || 0})
+                Your URLs ({data.length || 0})
               </h2>
               <button
                 title="Click to generate new short URL"
@@ -159,7 +164,7 @@ export default function Page({ params }) {
                       className="text-center text-white roboto-semibold text-xl bg-gray-900 h-[50px] rounded-2xl border-b-2 border-gray-950"
                     >
                       <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
-                        {item.longUrl} + .............hsk
+                        {item.longUrl}
                       </td>
 
                       <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
@@ -224,7 +229,7 @@ export default function Page({ params }) {
                         ></lord-icon>
                       </td>
                     </tr>
-                 ))}
+                  ))}
                 </tbody>
               </table>
             </div>
