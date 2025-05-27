@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react"; // Import useEffect for side effects
 
-import Head from "next/head"; // Import Head for managing the document head
+
 import Image from "next/image";
 import { faPhoneLaptop } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -14,7 +14,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import { Wind } from "lucide-react";
+
 export default function UserUrl({ params }) {
   const username = params.analytics; // Extract the username from the route parameters
   const [analytics, setanalytics] = useState(); // State for the data
@@ -90,23 +90,11 @@ export default function UserUrl({ params }) {
   };
   return (
     <>
-      <Head>
-        <title>Analytic Page</title>
-        <meta name="description" content="Analytics Page" />
+   <head>
+        <title>Analytic Page - Trimify</title>
+        <meta name="description" content="Analytics Page of short URL where user can see the analytics of there specific short URL" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
-        ></link>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-      </Head>
+      </head>
       <div
         className="relative w-full bg-slate-900 z-10 p-4"
         style={{ minHeight: "calc(100vh - 142px)", height: "full" }}
