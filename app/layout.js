@@ -19,6 +19,7 @@ const bree = Bree_Serif({
 export const metadata = {
   keywords: [
     "Trimify-The ultimate url shortner",
+    "Free URL shortner",
     "trimifiy",
     "URL shortener",
     "Free short URL generator",
