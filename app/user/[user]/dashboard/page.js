@@ -92,10 +92,15 @@ export default function Page({ params }) {
 
   const handleCopy = (url) => {
     navigator.clipboard.writeText(url).then(() => {
-      toast.success("URL copied to clipboard");
+      toast.success("Short URL copied to clipboard");
     });
   };
-
+  const handleCopy1 = (url) => {
+    navigator.clipboard.writeText(url).then(() => {
+      toast.success("Long URL copied to clipboard");
+    });
+  };
+  
   return (
     <>
       <head>
@@ -104,7 +109,6 @@ export default function Page({ params }) {
           name="description"
           content="A separate dashboard provided by TRIMIFY to its logged user in which they can create custom links and manage them"
         />
-        <Link rel="canonical" href="/" />
       </head>
       <ToastContainer className={"pt-12"} />
       <div
@@ -163,8 +167,27 @@ export default function Page({ params }) {
                       key={index}
                       className="text-center text-white roboto-semibold text-xl bg-gray-900 h-[50px] rounded-2xl border-b-2 border-gray-950"
                     >
-                      <td className="text-center py-2 bg-slate-600 border-b-2 border-gray-950 max-w-[200px] break-words md:max-w-[400px]">
-                        {item.longUrl}
+                      <td className="text-center pl-1 py-2 bg-slate-600 border-b-2 border-gray-950  break-words md:max-w-[400px]">
+                         <div className="inline-flex gap-2 justify-center items-center">
+
+                        {item.longUrl.length > 15
+                          ? `${item.longUrl.slice(0, 50)}...`
+                          : item.longUrl}
+                          <span className="gap-2 mt-2 cursor-pointer">
+                            <lord-icon
+                              aria-label="Copy to Clipboard"
+                              onClick={() => {
+                                handleCopy1(item.longUrl);
+                              }}
+                              alt="Copy to Clipboard"
+                              src="https://cdn.lordicon.com/iykgtsbt.json"
+                              trigger="hover"
+                              colors="primary:black,secondary:#08a88a"
+                              className="w-[28px] h-[28px]"
+                              title="Copy to Clipboard"
+                              ></lord-icon>
+                          </span>
+                              </div>
                       </td>
 
                       <td className="whitespace-nowrap text-center bg-slate-600 min-h-[10vh] h-full mt-2">
