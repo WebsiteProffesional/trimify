@@ -2,7 +2,7 @@ import Link from "next/link";
 import globalcss from "./globals.css";
 import { icons } from "lucide-react";
 export const metadata = {
-title: "Trimify – The Ultimate URL Shortener",
+title: "Trimify – The Ultimate and Free URL Shortener",
   description:
     "Trimify helps you create short, memorable links for easy sharing. Track clicks, manage your links, and say goodbye to long URLs with Trimify!",
   keywords: [
