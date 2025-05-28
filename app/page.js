@@ -4,7 +4,7 @@ import { icons } from "lucide-react";
 export const metadata = {
 title: "Trimify – The Ultimate and Free URL Shortener",
   description:
-    "Trimify helps you create short, memorable links for easy sharing. Track clicks, manage your links, and say goodbye to long URLs with Trimify!",
+    "Trimify helps you create short, memorable links for easy sharing. Track clicks, manage your links, and say goodbye to long URLs with Trimify!.The main advantage of Trimify is that it is Free for all users.",
   keywords: [
     "Trimify-The ultimate url shortner",
     "trimifiy",
