@@ -32,7 +32,21 @@ export default function RootLayout({ children }) {
           type="image/png"
           sizes="64x64"
         />
-       <meta name="google-adsense-account" content="ca-pub-6762794271004506" />     
+       <meta name="google-adsense-account" content="ca-pub-6762794271004506" />   
+    
+         {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6N1QFL1KLS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6N1QFL1KLS');
+          `}
+        </Script>
       </head>
       <body>
         {/* Move Script here */}
@@ -40,11 +54,13 @@ export default function RootLayout({ children }) {
           src="https://cdn.lordicon.com/ritcuqlt.js"
           strategy="afterInteractive"
         />
+            
         <Script
           unsafe-eval
           src="https://accounts.google.com/gsi/client"
           strategy="afterInteractive"
         />
+        
         <SessionWrapper>{children}</SessionWrapper>
       </body>
     </html>
