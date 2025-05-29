@@ -10,13 +10,13 @@ export const metadata = {
     "monitor link traffic"
   ],
   alternates: {
-    canonical: "/count-clicks"
+    canonical: "https://trimify.xyz/count-clicks"
   },
    openGraph: {
    title: "Count Clicks on Short URL – Trimify",
    description:
       "Track how many times your shortened URL was clicked using Trimify's analytics.",
-    url: "/count-clicks",
+    url: "https://trimify.xyz/count-clicks",
     siteName: "Trimify",
     images: [
       {
