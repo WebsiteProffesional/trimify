@@ -34,7 +34,7 @@ title: "Trimify – The Ultimate and Free URL Shortener",
     siteName: "Trimify",
     images: [
       {
-        url: "/favicon.png", // Recommended: 1200x630 og-image instead of favicon
+        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
         width: 800,
         height: 600,
         alt: "Trimify logo",
