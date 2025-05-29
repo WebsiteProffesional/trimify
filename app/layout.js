@@ -37,23 +37,6 @@ export const metadata = {
   icons: {
     icon: "/favicon.png", // favicon
   },
-  openGraph: {
-  
- siteName: "Trimify",
-    images: [
-      {
-        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
-        width: 800,
-        height: 600,
-        alt: "Trimify logo",
-      },
-    ],
-    locale: "en-US",
-    type: "website",
-  },
-  twitter: {
-    images: ["/og-image.png"],
-  },
 };
 
 export default function RootLayout({ children }) {
