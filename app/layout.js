@@ -2,7 +2,6 @@ import SessionWrapper from "./components/SessionProvider";
 import Script from "next/script";
 import "./globals.css";
 import { Roboto, Bree_Serif } from "next/font/google";
-
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -53,7 +52,7 @@ export default function RootLayout({ children }) {
           type="image/png"
           sizes="64x64"
         />
-       <meta name="google-adsense-account" content="ca-pub-6762794271004506">     
+       <meta name="google-adsense-account" content="ca-pub-6762794271004506" />     
       </head>
       <body>
         {/* Move Script here */}
