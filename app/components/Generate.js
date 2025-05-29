@@ -204,9 +204,9 @@ const Generate = () => {
             </motion.div>
           )}
           <div className="border-2 border-gray-900 w-full mt-4 flex flex-col justify-center items-center p-2 gap-3 rounded-lg max-w-[77vh] bg-slate-50">
-            <h4 className="text-center text-2xl font-semibold text-black">
+            <h2 className="text-center text-2xl font-semibold text-black">
               Want to create urls with custom name??
-            </h4>
+            </h2>
             <button
             title="Signup to create custom short URLs"
             aria-label="Signup to create custom short URLs"
