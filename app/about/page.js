@@ -3,10 +3,33 @@ import React from "react";
 export const metadata={
   title: "About - Trimify",
   description: "Learn more about Trimify, a modern URL shortener built with Next.js,MongoDB and by using a lot of advance programming techniques.",
-  keywords: ["Trimify", "URL Shortener", "Next.js", "Vibe Coding", "Link Management","About"],
+  keywords: ["Trimify", "URL Shortener", "Next.js", "Vibe Coding", "Link Management","About","Who developed Trimify","Trimify developer"],
   alternates:{
     canonicals:"/about"
-  }
+  },
+   openGraph: {
+   title: "About - Trimify",
+   description:
+      "Learn more about Trimify, a modern URL shortener built with Next.js,MongoDB and by using a lot of advance programming techniques.",
+    url: "/about",
+    siteName: "Trimify",
+    images: [
+      {
+        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
+        width: 800,
+        height: 600,
+        alt: "Trimify logo",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+    twitter: {
+    card: "summary_large_image",
+    title: "About - Trimify",
+    description: "Learn more about Trimify, a modern URL shortener built with Next.js,MongoDB and by using a lot of advance programming techniques.",
+    images: ["/og-image.png"],
+  },
 };
 const About = () => {
   return (
