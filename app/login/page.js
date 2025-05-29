@@ -10,13 +10,13 @@ export const metadata = {
     "Trimify login page"
   ],
   alternates: {
-    canonical: "/login"
+    canonical: "https://trimify.xyz/login"
   },
    openGraph: {
    title: "Login to Trimify - The Ultimate URL Shortener   ",
    description:
       "Log in to your Trimify account to access your dashboard and to create custom short links.If you have not created your account till now then first go and create your account.",
-    url: "/login",
+    url: "https://trimify.xyz/login",
     siteName: "Trimify - The Ultimate URL Shortener ",
     images: [
       {
