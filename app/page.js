@@ -6,18 +6,13 @@ title: "Trimify – The Ultimate and Free URL Shortener",
   description:
     "Trimify helps you create short, memorable links for easy sharing. Track clicks, manage your links, and say goodbye to long URLs with Trimify!.The main advantage of Trimify is that it is Free for all users.",
   keywords: [
-    "Trimify-The ultimate url shortner",
-    "trimifiy",
     "URL shortener",
-    "Free short URL generator",
-    "Link analytics",
-    "Short links",
-    "Track clicks",
+    "free URL shortener",
+    "custom short links",
+    "shorten URLs online",
+    "best link shortener",
     "Trimify",
-    "custom short urls",
-    "Login to Trimify",
-    "Sign up to Trimify",
-    "Dashboard of Trimify"
+    "link shortener",
   ],
   icons:{
     icon: '/favicon.png',  // favicon
