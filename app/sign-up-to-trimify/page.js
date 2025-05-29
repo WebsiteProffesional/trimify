@@ -11,13 +11,13 @@ export const metadata = {
     "Trimify user registration"
   ],
   alternates: {
-    canonical: "/sign-up-to-trimify"
+    canonical: "https://trimify.xyz/sign-up-to-trimify"
   },
   openGraph: {
    title: "Sign up to Trimify - The Ultimate URL Shortener",
    description:
       "Create your Trimify account to shorten and manage links with analytics.Also get a seperate dashboard for url management.",
-    url: "/sign-up-to-trimify",
+    url: "https://trimify.xyz/sign-up-to-trimify",
     siteName: "Trimify",
     images: [
       {
