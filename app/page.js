@@ -22,7 +22,7 @@ title: "Trimify – The Ultimate and Free URL Shortener",
   icons:{
     icon: '/favicon.png',  // favicon
   },
-  metadataBase: new URL("http://localhost:3000"), // Replace with your domain later
+  metadataBase: new URL("https://www.trimify.xyz"), // Replace with your domain later
   alternates: {
     canonical: "/",
   },
