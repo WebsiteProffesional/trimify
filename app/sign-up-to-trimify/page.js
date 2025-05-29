@@ -3,6 +3,13 @@ import Signup from "../components/Signup"
 export const metadata = {
   title: "Sign up to Trimify - The Ultimate URL Shortener",
   description: "Create your Trimify account to shorten and manage links with analytics.Also get a seperate dashboard for url management.",
+  keywords: [
+    "sign up URL shortener",
+    "create account Trimify",
+    "free URL shortener signup",
+    "register short link service",
+    "Trimify user registration"
+  ],
   alternates: {
     canonical: "/sign-up-to-trimify"
   },
