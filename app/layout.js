@@ -33,6 +33,9 @@ export const metadata = {
     "Dashboard of Trimify",
     "Clicks counter",
     "URL Click Counter",
+    "Login to trimify",
+    "Trimify Login",
+    "Branded custom links"
   ],
   icons: {
     icon: "/favicon.png", // favicon
