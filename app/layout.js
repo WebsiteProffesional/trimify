@@ -16,26 +16,6 @@ const bree = Bree_Serif({
   variable: "--font-bree",
 });
 export const metadata = {
-  keywords: [
-    "Trimify-The ultimate url shortner",
-    "Free URL shortner",
-    "trimifiy",
-    "URL shortener",
-    "Free short URL generator",
-    "Link analytics",
-    "Short links",
-    "Track clicks",
-    "Trimify",
-    "custom short urls",
-    "Login to Trimify",
-    "Sign up to Trimify",
-    "Dashboard of Trimify",
-    "Clicks counter",
-    "URL Click Counter",
-    "Login to trimify",
-    "Trimify Login",
-    "Branded custom links"
-  ],
   icons: {
     icon: "/favicon.png", // favicon
   },
