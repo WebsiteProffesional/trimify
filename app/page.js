@@ -27,7 +27,7 @@ title: "Trimify – The Ultimate and Free URL Shortener",
     canonical: "/",
   },
   openGraph: {
-    title: "Trimify – The Ultimate URL Shortener",
+    title: "Trimify – The Ultimate and Free URL Shortener",
     description:
       "Shorten, manage, and track links easily. Trimify lets you create memorable URLs and measure performance in real time.",
     url: "/",
@@ -45,7 +45,7 @@ title: "Trimify – The Ultimate and Free URL Shortener",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trimify – Smart URL Shortening",
+    title: "Trimify – The Ultimate and Free URL Shortener",
     description:
       "Fast, reliable, and free link shortener with real-time analytics. Try Trimify today!",
     images: ["/og-image.png"],
