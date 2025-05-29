@@ -10,13 +10,13 @@ export const metadata = {
     "free short URL generator"
   ],
   alternates: {
-    canonical: "/generate-shortUrl"
+    canonical: "https://trimify.xyz/generate-shortUrl"
   },
    openGraph: {
    title: "Generate Short URLs for Free - Trimify",
    description:
       "Paste your long URL and generate a short link instantly using Trimify.",
-    url: "/generate-shortUrl",
+    url: "https://trimify.xyz/generate-shortUrl",
     siteName: "Trimify",
     images: [
       {
