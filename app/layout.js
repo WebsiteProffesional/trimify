@@ -37,16 +37,9 @@ export const metadata = {
   icons: {
     icon: "/favicon.png", // favicon
   },
-  metadataBase: new URL("https://www.trimify.xyz"), // Replace with your domain later
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
-    title: "Trimify – The Ultimate URL Shortener",
-    description:
-      "Shorten, manage, and track links easily. Trimify lets you create memorable URLs and measure performance in real time.",
-    url: "/",
-    siteName: "Trimify",
+  
+ siteName: "Trimify",
     images: [
       {
         url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
@@ -59,10 +52,6 @@ export const metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Trimify - The Ultimate Url Shortner",
-    description:
-      "Fast, reliable, and free link shortener with real-time analytics. Try Trimify today!",
     images: ["/og-image.png"],
   },
 };
