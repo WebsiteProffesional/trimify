@@ -2,6 +2,13 @@ import Login from "../components/login"
 export const metadata = {
   title: "Login to Trimify - The Ultimate URL Shortener ",
   description: "Log in to your Trimify account to access your dashboard and to create custom short links.If you have not created your account till now then first go and create your account.",
+  keywords: [
+    "login URL shortener",
+    "access Trimify account",
+    "user login short link",
+    "sign in URL shortener",
+    "Trimify login page"
+  ],
   alternates: {
     canonical: "/login"
   },
