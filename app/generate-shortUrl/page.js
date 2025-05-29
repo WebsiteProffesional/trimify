@@ -2,6 +2,13 @@ import Generate from "../components/Generate"
 export const metadata = {
   title: "Generate Short URLs for Free - Trimify",
   description: "Paste your long URL and generate a short link instantly using Trimify.",
+  keywords: [
+    "generate short URL",
+    "create short link",
+    "URL shortening tool",
+    "shorten long URL",
+    "free short URL generator"
+  ],
   alternates: {
     canonical: "/generate-shortUrl"
   },
