@@ -7,16 +7,27 @@ export const metadata = {
     canonical: "/sign-up-to-trimify"
   },
   openGraph: {
-    title: "Sign up to Trimify - The Ultimate URL Shortner",
-    description:
+   title: "Sign up to Trimify - The Ultimate URL Shortner",
+   description:
       "Create your Trimify account to shorten and manage links with analytics.Also get a seperate dashboard for url management.",
-    url: "/",
+    url: "/sign-up-to-trimify",
+    siteName: "Trimify",
+    images: [
+      {
+        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
+        width: 800,
+        height: 600,
+        alt: "Trimify logo",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
   },
     twitter: {
     card: "summary_large_image",
     title: "Sign up to Trimify - The Ultimate URL Shortner",
-    description:
-      "Create your Trimify account to shorten and manage links with analytics.Also get a seperate dashboard for url management.",
+    description: "Create your Trimify account to shorten and manage links with analytics.Also get a seperate dashboard for url management.",
+    images: ["/og-image.png"],
   },
 };
 const page = () => {
