@@ -8,7 +8,7 @@ export const metadata = {
     "short URL statistics",
     "click count for short links",
     "monitor link traffic"
-  ]
+  ],
   alternates: {
     canonical: "/count-clicks"
   },
