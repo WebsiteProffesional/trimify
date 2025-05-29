@@ -7,6 +7,6 @@ export default function robots() {
         disallow: ['/user/*'],
       },
     ],
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://trimify.xyz/sitemap.xml',
   }
 }
