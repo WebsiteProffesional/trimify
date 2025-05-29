@@ -2,6 +2,13 @@ import Counter from "../components/Counter"
 export const metadata = {
   title: "Count Clicks on Short URL – Trimify",
   description: "Track how many times your shortened URL was clicked using Trimify's analytics.",
+  keywords: [
+    "track URL clicks",
+    "link analytics",
+    "short URL statistics",
+    "click count for short links",
+    "monitor link traffic"
+  ]
   alternates: {
     canonical: "/count-clicks"
   },
