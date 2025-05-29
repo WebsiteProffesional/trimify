@@ -2,10 +2,33 @@ import React from 'react';
 export const metadata = {
   title: "Contact - Trimify", 
   description: "Get in touch with Trimify for feedback and support. Contact us via email or phone.We will response you as soon as possible. We are always waiting for your feedback! ", 
-  keywords: ["Trimify", "Contact", "Feedback", "Support", "URL Shortener"],
+  keywords: ["Trimify", "Contact", "Feedback", "Support", "URL Shortener","Customer Care"],
     alternates:{
     canonicals:"/contact"
-  }
+  },
+   openGraph: {
+   title: "Contact - Trimify",
+   description:
+      "Get in touch with Trimify for feedback and support. Contact us via email or phone.We will response you as soon as possible. We are always waiting for your feedback!",
+    url: "/contact",
+    siteName: "Trimify",
+    images: [
+      {
+        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
+        width: 800,
+        height: 600,
+        alt: "Trimify logo",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+    twitter: {
+    card: "summary_large_image",
+    title: "Contact - Trimify",
+    description: "Get in touch with Trimify for feedback and support. Contact us via email or phone.We will response you as soon as possible. We are always waiting for your feedback!",
+    images: ["/og-image.png"],
+  },
 };
 const Contact = () => {
   return (
