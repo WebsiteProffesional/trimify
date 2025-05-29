@@ -53,6 +53,7 @@ export default function RootLayout({ children }) {
           type="image/png"
           sizes="64x64"
         />
+       <meta name="google-adsense-account" content="ca-pub-6762794271004506">     
       </head>
       <body>
         {/* Move Script here */}
