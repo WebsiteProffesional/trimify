@@ -44,7 +44,7 @@ const Generate = () => {
         },
         body: JSON.stringify({
           longUrl: longUrl, // Long URL input
-          shortName: nanoid(6), // Short URL input
+          shortName: nanoid(4), // Short URL input
           time: time, // Current time
           date: date, // Current date
         }),
