@@ -10,7 +10,7 @@ export const metadata={
 };
 const page = () => {
   return (
-    <div className="relative min-h-[78vh] w-full bg-slate-900 flex justify-center items-center">
+    <div className="relative min-h-[80.8vh] w-full bg-slate-900 flex justify-center items-center">
       <div className='bg-white h-[60vh] w-auto font-extrabold p-4 z-10'>
 
         <h1 className='text-3xl font-extrabold'>Page not found Due to invalid url</h1>
