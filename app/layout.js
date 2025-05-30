@@ -25,12 +25,12 @@ export default function RootLayout({ children }) {
        <meta name="yandex-verification" content="856eed846c4fcea9" />
        <meta name="google-adsense-account" content="ca-pub-6762794271004506" />   
        <Script
-        src="https://fpyf8.com/88/tag.min.js"
-        data-zone="149911"
-        async
-        data-cfasync="false"
-        strategy="lazyOnload" // ⏱ Load only after full page load
-       />     
+          src="https://fpyf8.com/88/tag.min.js"
+          data-zone="149911"
+          strategy="beforeInteractive" // Ensures it's in the <head> before page loads
+          async
+          data-cfasync="false"
+        />
          {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6N1QFL1KLS"
