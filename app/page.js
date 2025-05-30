@@ -126,8 +126,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#3b82f6,transparent)] opacity-30"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,#9333ea,transparent)] opacity-20"></div>
       </div>
-     {/* Ad's Secrion */ }
-     <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
+   
       <section className="border-black border-3 w-full p-2 bg-white text-gray-800">
         <div>
           <h1 className="text-center bg-slate-800 text-white bree p-3 text-2xl">
@@ -153,7 +152,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+     {/* Ad's Secrion */ }
+     <section className="border-black border-3 p-2 bg-white text-gray-800 mt-2">
+    <h2 className="text-center bg-slate-800 text-white bree p-3 text-2xl">
+            Ad's Section
+     </h2> 
+     <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
+     <section/>
       {/* FAQ Block */}
       <section className="border-black border-3 p-2 bg-white text-gray-800 mt-2">
         <section className="w-full text-gray-800 mt-4">
@@ -330,8 +335,7 @@ export default function Home() {
         </section>
       </section>
        {/* Ad's Secrion */ }
-       <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
-                  
+       <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>              
     </>
   );
 }
