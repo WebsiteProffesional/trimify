@@ -13,6 +13,8 @@ title: "Trimify – The Ultimate and Free URL Shortener",
     "best link shortener",
     "Trimify",
     "link shortener",
+    "URL Shortener alternative to bitly",
+    "2025 Best URL Shortener",
   ],
   icons:{
     icon: '/favicon.png',  // favicon
@@ -124,6 +126,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#3b82f6,transparent)] opacity-30"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,#9333ea,transparent)] opacity-20"></div>
       </div>
+     {/* Ad's Secrion */ }
      <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
       <section className="border-black border-3 w-full p-2 bg-white text-gray-800">
         <div>
@@ -326,6 +329,9 @@ export default function Home() {
           </div>
         </section>
       </section>
+       {/* Ad's Secrion */ }
+       <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
+                  
     </>
   );
 }
