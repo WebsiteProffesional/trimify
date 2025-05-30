@@ -158,7 +158,7 @@ export default function Home() {
             Ad's Section
      </h2> 
      <div classname="mx-auto" id="container-568618a428c18986cf4e486dc3df8e4b"></div>
-     <section/>
+       </section>
       {/* FAQ Block */}
       <section className="border-black border-3 p-2 bg-white text-gray-800 mt-2">
         <section className="w-full text-gray-800 mt-4">
