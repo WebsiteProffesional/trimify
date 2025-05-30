@@ -15,23 +15,13 @@ const bree = Bree_Serif({
   display: "swap",
   variable: "--font-bree",
 });
-export const metadata = {
-  icons: {
-    icon: "/favicon.png", // favicon
-  },
-};
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${roboto.variable} ${bree.variable}`}>
       <head>
-        <link
-          rel="icon"
-          href="/favicon.png"
-          className="rounded-[50%]"
-          type="image/png"
-          sizes="64x64"
-        />
+       <link rel="icon" href="/favicon.png" type="image/png" />
        <meta name="google-adsense-account" content="ca-pub-6762794271004506" />   
     
          {/* Google tag (gtag.js) */}
