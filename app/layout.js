@@ -24,7 +24,12 @@ export default function RootLayout({ children }) {
        <link rel="icon" href="/favicon.png" type="image/png" />
        <meta name="yandex-verification" content="856eed846c4fcea9" />
        <meta name="google-adsense-account" content="ca-pub-6762794271004506" />   
-       <script src="https://fpyf8.com/88/tag.min.js" data-zone="149911" async data-cfasync="false"></script>
+   <Script                    src="https://fpyf8.com/88/tag.min.js"
+          data-zone="149911"
+          strategy="afterInteractive" 
+          async
+          data-cfasync="false"
+        />
          {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6N1QFL1KLS"
