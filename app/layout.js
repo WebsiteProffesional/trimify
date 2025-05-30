@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${roboto.variable} ${bree.variable}`}>
       <head>
        <link rel="icon" href="/favicon.png" type="image/png" />
+       <meta name="yandex-verification" content="856eed846c4fcea9" />
        <meta name="google-adsense-account" content="ca-pub-6762794271004506" />   
     
          {/* Google tag (gtag.js) */}
