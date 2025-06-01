@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import Head from "next/head";
+import Script from "next/script";
 export default function Page({ params }) {
   const [data, setdata] = useState([]); // Data state
   const [loading, setLoading] = useState(false);
@@ -110,6 +110,11 @@ export default function Page({ params }) {
           content="A separate dashboard provided by TRIMIFY to its logged user in which they can create custom links and manage them"
         />
       </head>
+          <Script
+          src="https://cdn.lordicon.com/ritcuqlt.js"
+          strategy="afterInteractive"
+        />
+          
       <ToastContainer className={"pt-12"} />
       <div
         className="flex flex-col items-center  bg-gray-800 text-white"
