@@ -48,10 +48,6 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {/* Move Script here */}
-        <Script
-          src="https://cdn.lordicon.com/ritcuqlt.js"
-          strategy="afterInteractive"
-        />
      
             
         <Script
