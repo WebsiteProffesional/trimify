@@ -31,6 +31,15 @@ const Navbar = () => {
             href="/">Home</Link>
           </li>
           <li
+            title="Click to redirect to Blogs page"
+            className="transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]"
+          >
+            <Link 
+            title="Trimify Blogs Section"
+            aria-label="Blogs section"
+            href="/blog">Blogs</Link>
+          </li>
+          <li
          
             className="transition-all duration-300 ease-in-out cursor-pointer hover:translate-x-[-1px] hover:bg-slate-200 hover:text-black hover:rounded-[12px] px-2 py-[2px]"
           >
@@ -82,6 +91,12 @@ const Navbar = () => {
           >
             Home
           </Link>
+           <Link 
+            title="Trimify Blogs Section"
+            aria-label="Blogs section"
+            className="hover:text-gray-300"
+            onClick={() => setIsOpen(false)}
+            href="/blog">Blogs</Link>
           <Link
             href="/about"
             title="Click to redirect to about page"
