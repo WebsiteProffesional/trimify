@@ -13,9 +13,6 @@ const FeedbackSection = ({ pageNo }) => {
   const [feedback, setfeedback] = useState("");
   const [loading, setloading] = useState(false);
   dayjs.extend(relativeTime);
-  useEffect(() => {
-    console.log(Feedbacks);
-  }, [pageNo]);
 
   useEffect(() => {
     async function getFeedback() {
@@ -71,7 +68,7 @@ const FeedbackSection = ({ pageNo }) => {
       });
 
       let response = await a.json();
-      console.log(response);
+
 
       if (response.status === 200) {
         toast.success("Feedback submitted successfully.", {
@@ -101,7 +98,7 @@ const FeedbackSection = ({ pageNo }) => {
         });
       }
     } catch (error) {
-      console.error("Error submitting feedback:", error);
+
       toast.error("Something went wrong!", {
         position: "top-right",
         autoClose: 3000,
