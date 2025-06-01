@@ -2,6 +2,48 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackSection from "@/app/components/FeedbackSection";
+export const metadata = {
+  keywords: [
+    "free vs premium url shorteners",
+    "url shortener comparison",
+    "best url shorteners 2025",
+    "premium url shortener features",
+    "free url shortener benefits",
+    "Trimify free url shortener",
+    "url shortening options",
+  ],
+  icons: {
+    icon: "/favicon.ico", // favicon
+  },
+  metadataBase: new URL("https://trimify.xyz"), // Replace with your domain later
+  alternates: {
+    canonical: "https://trimify.xyz/blog/04",
+  },
+  openGraph: {
+    title: "Free vs Premium URL Shorteners | Trimify-Blog",
+    description:
+      "Explore the differences between free and premium URL shorteners. Learn which features matter and why Trimify offers the best value with premium features at no cost.",
+    url: "https://trimify.xyz/blog/04",
+    siteName: "Trimify - The Ultimate and Free URL Shortener",
+    images: [
+      {
+        url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
+        width: 800,
+        height: 600,
+        alt: "Trimify logo",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free vs Premium URL Shorteners | Trimify-Blog",
+    description:
+      "Explore the differences between free and premium URL shorteners. Learn which features matter and why Trimify offers the best value with premium features at no cost.",
+    images: ["/og-image.png"],
+  },
+};
 const page = () => {
   return (
     <>
