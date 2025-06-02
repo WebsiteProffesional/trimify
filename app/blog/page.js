@@ -11,7 +11,7 @@ export const metadata = {
     "Trimify blogs",
     "use cases",
   ],
-   title: "Famous and Helpful BLOGS | Trimify-Blog",
+  title: "Famous and Helpful BLOGS | Trimify-Blog",
   description: "Explore top articles related to URL shortening and more with Trimify.",
   icons: {
     icon: "/favicon.ico", // favicon
@@ -59,7 +59,7 @@ const page = () => {
           <h2 className="roboto-bold text-3xl underline text-center">
             Articles Related to URL Shortening
           </h2>
-          <div className="flex flex-row flex-wrap gap-4.5 mt-8">
+            <div className="flex flex-row flex-wrap  md:justify-start justify-center md:items-center  gap-4 mt-8 mx-auto">
             <article className="flex flex-col gap-2 mt-2 bg-white rounded-[5px]">
               <Image
                 alt="Top 5 Best URL Shorteners 2025"
