@@ -54,8 +54,7 @@ export default function UserUrl({ params }) {
       });
 
       let result = await response.json(); // Parse the JSON response
-      setMsg(result.shortUrl); // Set the generated short URL message
-
+ 
       // Check if the response is not OK
       if (!response.ok) {
         // Show a warning toast if the URL already exists
@@ -68,6 +67,8 @@ export default function UserUrl({ params }) {
         return; // Exit the function
       } else {
         // Show a success toast if the URL is generated successfully
+        setMsg(result.shortUrl); // Set the generated short URL message
+
         toast.success("The shorturl has been generated successfully", {
           position: "top-right",
           autoClose: 3000,
