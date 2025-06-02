@@ -13,6 +13,9 @@ export const metadata = {
     "short URL advantages",
     "URL shortening reasons",
   ],
+  title: "Why Use Short Links? Benefits of URL Shortening | Trimify-Blog",
+  description:
+      "Discover the advantages of using short links for marketing, social media, and better user experience. Learn why URL shortening is essential in today’s digital world.",
   icons: {
     icon: "/favicon.ico", // favicon
   },
