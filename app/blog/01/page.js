@@ -10,6 +10,9 @@ export const metadata = {
     "Which Link Shortener is good",
     "Which URL Shortener is good",
   ],
+  title: "Top 5 URL Shorteners 2025 | Trimify-Blog",
+    description:
+      "Discover the top 5 URL shorteners of 2025 with detailed feature breakdowns, pricing, customization options, and analytics tools to help you pick the best one.",
   icons: {
     icon: "/favicon.ico", // favicon
   },
