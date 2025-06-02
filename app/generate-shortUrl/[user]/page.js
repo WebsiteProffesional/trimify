@@ -180,7 +180,7 @@ export default function UserUrl({ params }) {
                <div className="flex items-center gap-2">
                 <div className="flex flex-col md:flex-row justify-center items-center gap-2 ">
                 <span >The short url is:</span>
-                </span>
+            
                 <Link
                   title="Click to open the short url"
                   rel="noopener noreferrer" // Prevents the new page from accessing the original page
