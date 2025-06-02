@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify"; // Import ToastContainer
 import Loader from "@/app/components/Loader"; // Import custom Loader component
 import { motion } from "framer-motion"; // Import motion for animations
 import { set } from "mongoose"; // Import set from mongoose (not used here)
-
+import Script from "next/script";
 export default function UserUrl({ params }) {
   const username = params.user; // Extract the username from the route parameters
   const [longUrl, setlongUrl] = useState(""); // State for the long URL input
@@ -113,6 +113,10 @@ export default function UserUrl({ params }) {
       <title>Create custom URLs for free</title>
       <meta name="description" content="Create the short urls with custom domain name and feel free to analyze them through dashboard" />
     </head>
+          <Script
+        src="https://cdn.lordicon.com/lordicon.js"
+        strategy="lazyOnload" // loads script during idle time after page load
+      />
       {/* Toast container for notifications */}
       <ToastContainer className={"pt-12"} />
       <div className="relative  w-full bg-slate-900 flex justify-center items-center p-4" style={{ minHeight: "calc(100vh - 142px)", height: "full" }}>
@@ -173,9 +177,9 @@ export default function UserUrl({ params }) {
                 transition={{ duration: 1 }} // Animation duration
                 className="text-xl z-2 font-extrabold text-black text-center flex flex-col items-center justify-center gap-2"
               >
-                <div className=" flex flex-col md:flex-row items-center">
-                <span className="text-xl font-bold text-black">
-                The short url is:{" "}
+               <div className="flex items-center gap-2">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-2 ">
+                <span >The short url is:</span>
                 </span>
                 <Link
                   title="Click to open the short url"
@@ -186,6 +190,7 @@ export default function UserUrl({ params }) {
                 >
                   {Msg}
                 </Link>
+                    </div>   
                 <span className="mt-2">
                   <lord-icon
                     aria-label="Copy to Clipboard"
