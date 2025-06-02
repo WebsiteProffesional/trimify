@@ -139,7 +139,7 @@ const Login = () => {
               id="username"
               type="text"
               placeholder="Enter your username"
-              className="bg-gray-800 text-white max-w-[75vh] transition-all duration-300 ease-in-out w-full px-2 py-4 focus:scale-102 focus:outline-green-400 outline-green-200 font-bold"
+              className="bg-gray-800 text-white max-w-[75vh] transition-all ease-in-out duration-300  w-full px-2 py-4 focus:scale-101 focus:outline-green-400 outline-green-200 font-bold"
             />
 
             {/* Password input field */}
@@ -153,7 +153,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"} // Toggle password visibility
                 autoComplete="current-password" // Enable autocomplete for password
                 placeholder="Enter your password"
-                className="bg-gray-800 text-white transition-all duration-300 ease-in-out focus:scale-102 focus:outline-green-400 max-w-[75vh] w-full px-2 py-4 outline-green-200 font-bold"
+                className="bg-gray-800 text-white transition-all ease-in-out duration-300  focus:scale-101 focus:outline-green-400 max-w-[75vh] w-full px-2 py-4 outline-green-200 font-bold"
               />
               {/* Toggle password visibility */}
               <Image
