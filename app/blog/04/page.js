@@ -12,6 +12,9 @@ export const metadata = {
     "Trimify free url shortener",
     "url shortening options",
   ],
+  title: "Free vs Premium URL Shorteners | Trimify-Blog",
+    description:
+      "Explore the differences between free and premium URL shorteners. Learn which features matter and why Trimify offers the best value with premium features at no cost.",
   icons: {
     icon: "/favicon.ico", // favicon
   },
