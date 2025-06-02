@@ -202,6 +202,7 @@ export default function Home() {
                   <li>One-time or occasional users.</li>
                   <li>People concerned with privacy and account creation.</li>
                 </ul>
+              
               </section>
 
               <section>
@@ -214,7 +215,8 @@ export default function Home() {
                   <li>To track and manage their shortened URLs.</li>
                   <li>To create custom branded short links.</li>
                 </ul>
-
+                <p className="roboto-semi mt-2"><b>Important:</b> Short URLs created with this mode includes a 5-second ad redirection before
+                reaching the final page.</p>
                 <div className="pl-5 ml-3 mt-4 border-l-4 border-slate-400">
                   <h3 className="text-xl roboto-bold underline mb-2">
                     Key Features:
