@@ -399,7 +399,7 @@ const page = () => {
       </div>
       <hr className="w-full h-[2px] bg-gray-500 border-none my-4" />
       {/* User Feedback Section */}
-      <FeedbackSection pageNo={3} />
+      <FeedbackSection pageNo={4} />
     </>
   );
 };
