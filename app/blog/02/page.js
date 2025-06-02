@@ -3,27 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import FeedbackSection from "@/app/components/FeedbackSection";
 export const metadata = {
-  keywords: [
-    "free vs premium url shorteners",
-    "url shortener comparison",
-    "best url shorteners 2025",
-    "premium url shortener features",
-    "free url shortener benefits",
-    "Trimify free url shortener",
-    "url shortening options",
-  ],
+title: "How to Use URL Shorteners: A Complete Guide | Trimify-Blog",
+description: "Learn how to use URL shorteners to create clean, shareable links. Step-by-step guide on shortening, customizing, and tracking URLs using popular tools like Trimify.",
+keywords: [
+  "URL shortener guide",
+  "how to shorten URLs",
+  "custom short links",
+  "track URL clicks",
+  "Trimify URL shortener",
+  "URL shortening tutorial",
+  "shorten URLs online",
+  "free URL shortener",
+],
+
   icons: {
     icon: "/favicon.ico", // favicon
   },
   metadataBase: new URL("https://trimify.xyz"), // Replace with your domain later
   alternates: {
-    canonical: "https://trimify.xyz/blog/04",
+    canonical: "https://trimify.xyz/blog/02",
   },
   openGraph: {
-    title: "Free vs Premium URL Shorteners | Trimify-Blog",
-    description:
-      "Explore the differences between free and premium URL shorteners. Learn which features matter and why Trimify offers the best value with premium features at no cost.",
-    url: "https://trimify.xyz/blog/04",
+    title: "How to Use URL Shorteners: A Complete Guide | Trimify-Blog",
+description: "Learn how to use URL shorteners to create clean, shareable links. Step-by-step guide on shortening, customizing, and tracking URLs using popular tools like Trimify.",
+
+    url: "https://trimify.xyz/blog/02",
     siteName: "Trimify - The Ultimate and Free URL Shortener",
     images: [
       {
