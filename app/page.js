@@ -28,7 +28,7 @@ title: "Trimify – The Ultimate and Free URL Shortener",
     description:
       "Shorten, manage, and track links easily. Trimify lets you create memorable URLs and measure performance in real time.",
     url: "/",
-    siteName: "Trimify",
+    siteName: "Trimify - The Ultimate and Free URL Shortener",
     images: [
       {
         url: "/og-image.png", // Recommended: 1200x630 og-image instead of favicon
