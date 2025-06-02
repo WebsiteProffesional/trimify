@@ -8,6 +8,7 @@ import Loader from "../components/Loader"; // Import a custom Loader component
 import { motion } from "framer-motion"; // Import motion for animations
 import { nanoid } from "nanoid";
 import Head from "next/head";
+import Script from "next/script"
 // Define the Generate component
 const Generate = () => {
   // State variables for managing input fields, messages, and loading state
@@ -126,6 +127,10 @@ const Generate = () => {
           rel="stylesheet"
         />
       </Head>
+      <Script
+        src="https://cdn.lordicon.com/lordicon.js"
+        strategy="lazyOnload" // loads script during idle time after page load
+      />
       {/* Toast container for notifications */}
       <ToastContainer className={"pt-12"} />
       <div className="relative w-full bg-slate-900 flex justify-center items-center p-4" style={{ minHeight: "calc(100vh - 142px)", height:"full"}}>
@@ -170,42 +175,44 @@ const Generate = () => {
           {/* Show loader if loading */}
           {loading && <Loader />}
           {/* Show the generated short URL if available */}
-          {On && (
+           {On && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }} // Initial animation state
-              animate={{ opacity: 1, scale: 1 }} // Final animation state
-              transition={{ duration: 1 }} // Animation duration
-              className="text-xl z-2 font-extrabold text-black text-center flex items-center justify-center gap-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="text-xl z-2 font-extrabold text-black text-center flex flex-col items-center justify-center gap-2"
             >
-              The short url is:{" "}
-              <Link
-                title="Click to open the short url"
-                rel="noopener noreferrer" // Prevents the new page from accessing the original page
-                target="_blank" // Open link in a new tab
-                className="text-white font-bold cursor-pointer underline z-2"
-                href={Msg} // Link to the generated short URL
-              >
-                {Msg}
-              </Link>
-              <span>
-                <lord-icon
-                  aria-label="Copy to Clipboard"
-                  onClick={() => {
-                    handleCopy(Msg); // Call handleCopy with the generated short URL
-                  }}
-                  alt="Copy to Clipboard"
-                  src="https://cdn.lordicon.com/iykgtsbt.json"
-                  trigger="hover"
-                  colors="primary:black,secondary:#08a88a"
-                  className="w-[28px] h-[28px] cursor-pointer"
-                  title="Copy to Clipboard"
-                ></lord-icon>
-              </span>
+              <div className="flex flex-col md:flex-row  items-center gap-2">
+                <span>The short url is:</span>
+                <Link
+                  title="Click to open the short url"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="text-white font-bold cursor-pointer underline z-2"
+                  href={Msg}
+                >
+                  {Msg}
+                </Link>
+                <span>
+                  <lord-icon
+                    onClick={() => handleCopy(Msg)}
+                    src="https://cdn.lordicon.com/iykgtsbt.json"
+                    trigger="hover"
+                    colors="primary:black,secondary:#08a88a"
+                    className="w-[28px] h-[28px] cursor-pointer"
+                    title="Copy to Clipboard"
+                  ></lord-icon>
+                </span>
+              </div>
+              <p className="text-sm text-gray-300 font-medium mt-1">
+                ⚠️ This short URL includes a 3-second ad redirection before
+                reaching the final page. Please wait patiently.
+              </p>
             </motion.div>
           )}
           <div className="border-2 border-gray-900 w-full mt-4 flex flex-col justify-center items-center p-2 gap-3 rounded-lg max-w-[77vh] bg-slate-50">
             <h2 className="text-center text-2xl font-semibold text-black">
-              Want to create urls with custom name??
+              Want to prevent ads and create urls with custom name??
             </h2>
             <button
             title="Signup to create custom short URLs"
