@@ -7,7 +7,8 @@ export const metadata = {
     "create short link",
     "URL shortening tool",
     "shorten long URL",
-    "free short URL generator"
+    "free short URL generator",
+    "Trim url"
   ],
   alternates: {
     canonical: "https://trimify.xyz/generate-shortUrl"
