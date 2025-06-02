@@ -20,7 +20,18 @@ export default function Page({ params }) {
   useEffect(() => {
     async function tokenfetch() {
       let data = await localStorage.getItem("Token");
-      let decodedtoken = await jwtDecode(data);
+      
+     if (!data) {
+      toast.warn("Please login first", {
+       position: "top-right",
+       autoClose: 3000,
+       });
+       router.push("/login");
+        return;
+      }
+
+      let decodedtoken = jwtDecode(data);
+   
 
       let savedUsername = decodedtoken.Username;
 
@@ -65,30 +76,28 @@ export default function Page({ params }) {
   }, [username]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
-  const handleDelete = async (item) => {
-    try {
-      const deleteUrl = await fetch(
-        `/api/userdata/${username}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ shortName: item }),
-        }
-      );
-      const response = await deleteUrl.json();
-      if (deleteUrl.ok) {
-        toast.success("URL deleted successfully");
-        setdata((prevData) => ({
-          ...prevData,
-          urls: prevData.urls.filter((url) => url.shortName !== item),
-        }));
-      }
-    } catch (err) {
-      toast.error("Failed to delete URL");
+ onst handleDelete = async (item) => {
+  try {
+    const res = await fetch(`/api/userdata/${username}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ shortName: item }),
+    });
+
+    const response = await res.json();
+
+    if (res.ok) {
+      toast.success("URL deleted successfully");
+      setdata((prevData) => prevData.filter((url) => url.shortName !== item));
+    } else {
+      toast.error(response.message || "Failed to delete URL");
     }
-  };
+  } catch (err) {
+    toast.error("Failed to delete URL");
+  }
+};
 
   const handleCopy = (url) => {
     navigator.clipboard.writeText(url).then(() => {
