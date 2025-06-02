@@ -72,5 +72,8 @@ export default async function Page({ params }) {
   }
 
   // Final redirection
-  redirect(urlDoc.longUrl);
-}
+ if(existing.username==="guest"){
+ redirect(`/ad?url=${encodeURIComponent(urlDoc.longUrl)}`);
+ }else{
+  redirect(existing.longUrl)
+ }
