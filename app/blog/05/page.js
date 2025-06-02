@@ -9,6 +9,9 @@ export const metadata = {
     "marketing url short links",
     "social media url shortener",
   ],
+  title: "Use Case of URL Shorteners | Trimify-Blog",
+    description:
+      "Discover various use cases of URL shorteners across marketing, social media, analytics, and more. Learn how Trimify enhances link management and tracking for users.",
   icons: {
     icon: "/favicon.ico", // favicon
   },
