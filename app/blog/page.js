@@ -79,7 +79,7 @@ const page = () => {
                 </Link>
               </h2>
               <p className="roboto-semibold  pl-2 w-[320px]">
-                To short the url first of all we have to know about...
+                In this article top 5 best URL Shorteners with there pros and cons are...
               </p>
               <p className="pl-2 mb-1">
                 <b>Published By:</b>Trimify Owner
@@ -104,7 +104,7 @@ const page = () => {
                 </Link>
               </h2>
               <p className="roboto-semibold  pl-2 w-[320px]">
-                To short the url first of all we have to know about...
+                This article will guide usage of top 5 best URL Shorteners and also...
               </p>
               <p className="pl-2 mb-1">
                 <b>Published By:</b>Trimify Owner
@@ -129,7 +129,9 @@ const page = () => {
                 </Link>
               </h2>
               <p className="roboto-semibold  pl-2 w-[320px]">
-                To short the url first of all we have to know about...
+                Short Link adds beauty to social media profiles and also enhances...
+
+                    
               </p>
               <p className="pl-2 mb-1">
                 <b>Published By:</b>Trimify Owner
