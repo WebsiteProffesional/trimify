@@ -76,7 +76,7 @@ export default function Page({ params }) {
   }, [username]); // Re-fetch when loading state is set to false
 
   // Delete URL handler
- onst handleDelete = async (item) => {
+ const handleDelete = async (item) => {
   try {
     const res = await fetch(`/api/userdata/${username}`, {
       method: "DELETE",
