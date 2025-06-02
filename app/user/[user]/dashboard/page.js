@@ -68,7 +68,7 @@ export default function Page({ params }) {
   const handleDelete = async (item) => {
     try {
       const deleteUrl = await fetch(
-        `http://localhost:3000/api/userdata/${username}`,
+        `https://trimify.xyz/api/userdata/${username}`,
         {
           method: "DELETE",
           headers: {
