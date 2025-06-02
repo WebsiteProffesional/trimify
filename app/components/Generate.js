@@ -175,15 +175,16 @@ const Generate = () => {
           {/* Show loader if loading */}
           {loading && <Loader />}
           {/* Show the generated short URL if available */}
-           {On && (
+            {On && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
               className="text-xl z-2 font-extrabold text-black text-center flex flex-col items-center justify-center gap-2"
             >
-              <div className="flex flex-col md:flex-row  items-center gap-2">
-                <span>The short url is:</span>
+              <div className="flex items-center gap-2">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-2 ">
+                <span >The short url is:</span>
                 <Link
                   title="Click to open the short url"
                   rel="noopener noreferrer"
@@ -193,7 +194,8 @@ const Generate = () => {
                 >
                   {Msg}
                 </Link>
-                <span>
+                </div>
+                <span className="pt-12 md:pt-4">
                   <lord-icon
                     onClick={() => handleCopy(Msg)}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
