@@ -207,7 +207,7 @@ const Generate = () => {
                 </span>
               </div>
               <p className="text-sm text-gray-300 font-medium mt-1">
-                ⚠️ This short URL includes a 3-second ad redirection before
+                ⚠️ This short URL includes a 5-second ad redirection before
                 reaching the final page. Please wait patiently.
               </p>
             </motion.div>
