@@ -64,6 +64,9 @@ export default function UserUrl({ params }) {
         });
         setlongUrl(""); // Clear the long URL input
         setshortUrl(""); // Clear the short URL input
+        if(setOn===true){
+          setOn(false)
+        }
         return; // Exit the function
       } else {
         // Show a success toast if the URL is generated successfully
