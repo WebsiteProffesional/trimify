@@ -11,6 +11,8 @@ export const metadata = {
     "Trimify blogs",
     "use cases",
   ],
+   title: "Famous and Helpful BLOGS | Trimify-Blog",
+  description: "Explore top articles related to URL shortening and more with Trimify.",
   icons: {
     icon: "/favicon.ico", // favicon
   },
