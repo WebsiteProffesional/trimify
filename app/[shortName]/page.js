@@ -77,3 +77,5 @@ export default async function Page({ params }) {
  }else{
   redirect(existing.longUrl)
  }
+}  
+  
