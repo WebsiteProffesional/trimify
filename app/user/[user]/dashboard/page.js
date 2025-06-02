@@ -21,16 +21,9 @@ export default function Page({ params }) {
     async function tokenfetch() {
       let data = await localStorage.getItem("Token");
       
-     if (!data) {
-      toast.warn("Please login first", {
-       position: "top-right",
-       autoClose: 3000,
-       });
-       router.push("/login");
-        return;
-      }
 
-      let decodedtoken = jwtDecode(data);
+
+      let decodedtoken =await jwtDecode(data);
    
 
       let savedUsername = decodedtoken.Username;
