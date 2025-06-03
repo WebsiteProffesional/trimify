@@ -63,7 +63,7 @@ const Contact = () => {
           </p>
         </header>
 
-        <address className="flex flex-col justify-center items-center gap-4 not-italic mx-auto">
+        <address className="flex flex-col justify-center items-center gap-4 not-italic mx-auto pr-5">
           <section aria-labelledby="email-heading">
             <div className="flex items-center gap-2 justify-center text-center">
               <Image src="/email.png" width={32} height={32} alt="Email Icon" />
