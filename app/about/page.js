@@ -46,7 +46,7 @@ const About = () => {
           <header>
             <h1
               id="about-us-heading"
-              className="text-3xl bree underline mt-8"
+              className="text-4xl bree underline mt-8"
                aria-label="About Trimify section"
             >
               About Trimify
