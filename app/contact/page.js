@@ -51,7 +51,7 @@ const Contact = () => {
         <header>
           <h1
             id="contact-heading"
-            className="text-3xl bree text-center underline mt-8"
+            className="text-4xl bree text-center underline mt-8"
           >
             Contact Us
           </h1>
