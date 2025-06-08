@@ -7,24 +7,28 @@ import bcrypt from "bcrypt";
 
 export default async function Page({ params }) {
   const headersList = headers();
-  let ip = headersList.get("x-forwarded-for")?.split(",")[0].trim();
 
-  if (!ip || ip === "::1" || ip === "127.0.0.1") {
-    ip = "103.255.4.85"; // fallback IP for local testing
-  }
+  let ip =
+    headersList.get("x-vercel-forwarded-for") || // Vercel-specific real IP
+    headersList.get("x-forwarded-for")?.split(",")[0].trim() ||
+    headersList.get("x-real-ip") ||
+    "103.255.4.85"; // fallback for local dev
 
   const hashedIP = bcrypt.hashSync(ip, 10);
 
+  // Get city using IP
   const locationRes = await fetch(
-    `https://api.ipgeolocation.io/ipgeo?apiKey=441aeb1a519e46628e5b3fdbb18579c4&ip=${ip}`
+    `https://api.ipgeolocation.io/ipgeo?apiKey=441aeb1a519e46628e5b3fdbb18579c4&ip=${ip}`,
+    { cache: "no-store" } // Optional: disable caching to get fresh result
   );
   const locationData = await locationRes.json();
 
   const city = locationData.city ?? "City not found";
-  const flag = locationData.country_flag ?? "Region not found";
+  const flag = locationData.country_flag ?? "Flag not found";
   const country = locationData.country_name ?? "Country not found";
-  const countryCode = locationData.country_code3 ?? "Country code not found";
+  const countryCode = locationData.country_code3 ?? "Code not found";
 
+  // Parse user agent
   const userAgent = headersList.get("user-agent") || "";
   const parser = new UAParser(userAgent);
   const deviceType = parser.getDevice().type ?? "Desktop";
@@ -72,10 +76,9 @@ export default async function Page({ params }) {
   }
 
   // Final redirection
- if(existing.username==="guest"){
- redirect(`/ad?url=${encodeURIComponent(urlDoc.longUrl)}`);
- }else{
-  redirect(existing.longUrl)
- }
-}  
-  
+  if (existing.username === "guest") {
+    redirect(`/ad?url=${encodeURIComponent(urlDoc.longUrl)}`);
+  } else {
+    redirect(existing.longUrl);
+  }
+}
